@@ -13,7 +13,7 @@ composer require demyanovs/code-highlighter
 ```
 or
 ```
-// require the Faker autoloader
+// require the CodeHighlighter autoloader
 require_once '/path/to/CodeHighlighter/src/autoload.php';
 ```
 
