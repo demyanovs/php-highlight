@@ -44,7 +44,7 @@ Where ClassName - name of available class, currently available:
 * HighlighterPHP, 
 * HighlighterBash
 
-### Example
+## Example
 See index.php
 ```
 $highlighter = new HighlighterText($text);
