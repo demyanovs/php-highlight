@@ -7,11 +7,6 @@ The library parses the text, finds the tag \<code>, read the attribute data-lang
 By default uses php function highlight_string() for php code or for the unknown code, but can be easily extended or replaced at will. Supports style customization;
 
 ## Installation
-
-```sh
-composer require demyanovs/code-highlighter
-```
-or
 ```
 // require the CodeHighlighter autoloader
 require_once '/path/to/CodeHighlighter/src/autoload.php';
