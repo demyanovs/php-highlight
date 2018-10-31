@@ -43,6 +43,9 @@ ClassName::setHtmlColor('#ccc');
 Where ClassName - name of available class, currently available: 
 * HighlighterPHP, 
 * HighlighterBash
+
+### Example
+See index.php
 ```
 $highlighter = new HighlighterText($text);
 HighlighterPHP::setCommentColor('#a800a2; font-weight: bold');
