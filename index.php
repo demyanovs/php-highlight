@@ -25,6 +25,8 @@
 require_once 'CodeHighlighter/src/autoload.php';
 
 use CodeHighlighter\HighlighterText;
+use CodeHighlighter\HighlighterPHP;
+use CodeHighlighter\HighlighterBash;
 
 $text = '
 <h2>Sample of php code highlighting</h2>
