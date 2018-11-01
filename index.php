@@ -29,7 +29,7 @@ use CodeHighlighter\HighlighterPHP;
 use CodeHighlighter\HighlighterBash;
 
 $text = '
-<h2>Sample of php code highlighting</h2>
+<h2>Sample of php code</h2>
 <code data-lang="php">
 private static function strPos()
 {
@@ -48,7 +48,7 @@ private static function strPos()
 }
 </code>
 
-<h2>Sample of bash code JavaScript</h2>
+<h2>Sample of JavaScript code</h2>
 <code data-lang="js">
 function myConcat(separator) {
    var result = \'\'; // initialize list
@@ -61,7 +61,7 @@ function myConcat(separator) {
 }
 </code>
 
-<h2>Sample of bash code highlighting</h2>
+<h2>Sample of bash code</h2>
 <code data-lang="bash">
 #!/bin/bash
 directory="./BashScripting"
