@@ -48,7 +48,7 @@ private static function strPos()
 }
 </code>
 
-<h2>js</h2>
+<h2>Sample of bash code JavaScript</h2>
 <code data-lang="js">
 function myConcat(separator) {
    var result = \'\'; // initialize list
