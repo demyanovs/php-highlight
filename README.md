@@ -42,6 +42,10 @@ Where ClassName - name of available class, currently available:
 ## Example
 See index.php
 ```
+use CodeHighlighter\HighlighterText;
+use CodeHighlighter\HighlighterPHP;
+use CodeHighlighter\HighlighterBash;
+
 $highlighter = new HighlighterText($text);
 HighlighterPHP::setCommentColor('#a800a2; font-weight: bold');
 HighlighterBash::setCommentColor('#e519f7;');
