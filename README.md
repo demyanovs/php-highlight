@@ -7,14 +7,16 @@ The library parses the text, finds the tag \<code>, read the attribute data-lang
 By default uses php function highlight_string() for php code or for the unknown code, but can be easily extended or replaced at will. Supports style customization;
 
 ## Installation
-```
+```php
 // require the CodeHighlighter autoloader
 require_once '/path/to/CodeHighlighter/src/autoload.php';
 ```
 
 ## Basic Usage
 
-```
+```php
+<?php
+
 require_once '/path/to/CodeHighlighter/src/autoload.php';
 
 use CodeHighlighter\HighlighterText;
@@ -26,7 +28,7 @@ echo $highlighter->parse();
 
 ## Customization
 For each block can be set its own text color, background color, font weight and more.
-```
+```php
 ClassName::setDefaultColor('#ccc');
 ClassName::setBackgroundColor('#ccc');
 ClassName::setCommentColor('#ccc');
@@ -41,7 +43,9 @@ Where ClassName - name of available class, currently available:
 
 ## Example
 See index.php
-```
+```php
+<?php
+
 use CodeHighlighter\HighlighterText;
 use CodeHighlighter\HighlighterPHP;
 use CodeHighlighter\HighlighterBash;
