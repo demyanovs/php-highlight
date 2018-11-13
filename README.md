@@ -56,9 +56,9 @@ echo $highlighter->parse();
 ## Extend
 You can wrote your own extended HighlighterAbstract or just use HighlighterPHP by default.
 
-## Coming soon
-* Support line number.
-* Dark/light themes.
-* Total lines display
-* Copy button
-* Name of file
+## Features
+- [ ] line number
+- [ ] total lines
+- [ ] dark/light themes
+- [ ] copy button
+- [ ] set filename
