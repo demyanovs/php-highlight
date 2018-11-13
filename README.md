@@ -42,7 +42,7 @@ Where ClassName - name of available class, currently available:
 * HighlighterBash
 
 ## Example
-See index.php
+See [index.php](../blob/master/index.php)
 ```php
 <?php
 
