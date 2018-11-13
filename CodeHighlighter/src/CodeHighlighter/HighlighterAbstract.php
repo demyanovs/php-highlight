@@ -48,21 +48,6 @@ abstract class HighlighterAbstract
     }
 
     /**
-     * @param string $text
-     * @param string $bg_color
-     * @return string
-     */
-    public static function wrapCode(string $text, string $bg_color = ''): string
-    {
-        return "<code style='background-color: $bg_color'>".$text."</code>";
-    }
-
-    protected function setColors()
-    {
-
-    }
-
-    /**
      * @return mixed
      */
     abstract public function highlight();

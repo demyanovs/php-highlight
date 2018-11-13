@@ -57,7 +57,7 @@ class HighlighterBash extends HighlighterAbstract {
             }
         }
 
-        return $text = self::wrapCode(implode("<br />", $lines), self::getBackgroundColor());
+        return $text = implode("<br />", $lines);
     }
 
     /**

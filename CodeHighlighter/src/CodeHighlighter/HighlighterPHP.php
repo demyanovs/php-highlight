@@ -25,7 +25,7 @@ class HighlighterPHP extends HighlighterAbstract {
     {
         // Set default colors
         $this->setColors();
-        return self::wrapCode(str_replace(['&lt;?php&nbsp;<br />', '<code>', '</code>'], '', highlight_string("<?php ".$this->_text, true)), self::getBackgroundColor());
+        return str_replace(['&lt;?php&nbsp;<br />', '<code>', '</code>'], '', highlight_string("<?php ".$this->_text, true));
     }
 
     protected function setColors()

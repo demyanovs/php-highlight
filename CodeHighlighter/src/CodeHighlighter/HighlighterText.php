@@ -24,11 +24,12 @@ class HighlighterText {
     public function parse()
     {
         return preg_replace_callback(
-            '/<code data-lang="(.*?)">(.*?)<\/code>/ism',
+            '/<code data-lang="(.*?)" data-file-path="(.*?)">(.*?)<\/code>/ism',
             function ($matches) {
                 $lang = $matches[1];
-                $block = $matches[2];
-                return $this->parseBlock($block, $lang);
+                $filePath = $matches[2];
+                $block = $matches[3];
+                return $this->parseBlock($block, $lang, $filePath);
             },
             $this->_text);
     }
@@ -36,20 +37,41 @@ class HighlighterText {
     /**
      * @param string $block
      * @param string $lang
+     * @param string $filePath
      * @return mixed|string
      */
-    private function parseBlock(string $block, string $lang)
+    private function parseBlock(string $block, string $lang, string $filePath = '')
     {
         if ($lang == "php") {
             $highlighter = HighlighterPHP::getInstance($block);
-            $block = $highlighter->highlight();
         } elseif ($lang == "bash") {
             $highlighter = HighlighterBash::getInstance($block);
-            $block = $highlighter->highlight();
         } else {
             $highlighter = new HighlighterPHP($block);
-            $block = $highlighter->highlight();
         }
-        return $block;
+        $block = $highlighter->highlight();
+        return $this->wrapCode($block, $highlighter::getBackgroundColor(), $filePath);
+    }
+
+    /**
+     * @param string $text
+     * @param string $bgColor
+     * @param string $filePath
+     * @return string
+     */
+    private function wrapCode(string $text, string $bgColor = '', string $filePath = ''): string
+    {
+        return '
+            <div class="code-block-wrapper">
+            <div class="meta">
+                <div class="actions">
+                        <span class="js-copy-clipboard">Copy</span>
+                    </div>
+                    <div class="info">
+                        <span>'.$filePath.'</span>
+                    </div>
+                </div>
+            </div>
+            <code style="background-color: '.$bgColor.'">'.$text.'</code>';
     }
 }

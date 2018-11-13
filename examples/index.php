@@ -3,34 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <title>CodeHighlighter example</title>
-    <style>
-        code {
-            display: block;
-            padding: 5px;
-            border: 1px solid #ddd;
-            border-radius: 3px;
-            font-size: 12px;
-            font-family: "SFMono-Regular",Consolas,"Liberation Mono",Menlo,Courier,monospace;
-            overflow-x: auto;
-            overflow-y: hidden;
-            white-space: pre-wrap;
-            tab-size: 4;
-        }
-    </style>
+    <link type="text/css" rel="stylesheet"  href="css/highlighter.css">
 </head>
 <body>
 
 <?php
 
-require_once 'CodeHighlighter/src/autoload.php';
+require_once '../CodeHighlighter/src/autoload.php';
 
 use CodeHighlighter\HighlighterText;
 use CodeHighlighter\HighlighterPHP;
 use CodeHighlighter\HighlighterBash;
 
 $text = '
-<h2>Sample of php code</h2>
-<code data-lang="php">
+<h2>PHP</h2>
+<code data-lang="php" data-file-path="php-code-highlighter/examples/index.php">
 private static function strPos()
 {
     $mystring = "abc";
@@ -48,8 +35,8 @@ private static function strPos()
 }
 </code>
 
-<h2>Sample of JavaScript code</h2>
-<code data-lang="js">
+<h2>JavaScript</h2>
+<code data-lang="js" data-file-path="example.js">
 function myConcat(separator) {
    var result = \'\'; // initialize list
    var i;
@@ -61,8 +48,8 @@ function myConcat(separator) {
 }
 </code>
 
-<h2>Sample of bash code</h2>
-<code data-lang="bash">
+<h2>Bash</h2>
+<code data-lang="bash" data-file-path="example.sh">
 #!/bin/bash
 directory="./BashScripting"
 
