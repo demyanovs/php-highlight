@@ -24,11 +24,11 @@ class HighlighterText {
     public function parse()
     {
         return preg_replace_callback(
-            '/<code data-lang="(.*?)" data-file-path="(.*?)">(.*?)<\/code>/ism',
+            '/<code data-lang="(.*?)"( data-file-path="(.*?)">|>)(.*?)<\/code>/ism',
             function ($matches) {
                 $lang = $matches[1];
-                $filePath = $matches[2];
-                $block = $matches[3];
+                $filePath = $matches[3];
+                $block = $matches[4];
                 return $this->parseBlock($block, $lang, $filePath);
             },
             $this->_text);

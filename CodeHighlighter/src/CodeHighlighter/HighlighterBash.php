@@ -20,8 +20,9 @@ class HighlighterBash extends HighlighterAbstract {
      */
     private $_flagColor = '#fa6e6e';
 
-    public static function getInstance($text)
+    public static function getInstance(string $text)
     {
+        self::setText($text);
         if (self::$_instance) {
             return self::$_instance;
         }
@@ -33,7 +34,7 @@ class HighlighterBash extends HighlighterAbstract {
      */
     public function highlight()
     {
-        $by_lines = explode(PHP_EOL, $this->_text);
+        $by_lines = explode(PHP_EOL, self::$_text);
         $lines = [];
         foreach ($by_lines as $key => $line) {
             // Comment line

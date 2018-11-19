@@ -13,7 +13,7 @@ abstract class HighlighterAbstract
     /**
      * @var string
      */
-    protected $_text;
+    protected static $_text;
 
     /**
      * HighlightAbstract constructor.
@@ -45,6 +45,14 @@ abstract class HighlighterAbstract
     public static function colorWord(string $word, string $line, string $color)
     {
         return str_replace($word, '<span style="color:'.$color.'">'.$word.'</span>', $line);
+    }
+
+    /**
+     * @param string $text
+     */
+    public static function setText(string $text)
+    {
+        self::$_text = $text;
     }
 
     /**

@@ -12,6 +12,7 @@ class HighlighterPHP extends HighlighterAbstract {
 
     public static function getInstance($text)
     {
+        self::setText($text);
         if (self::$_instance) {
             return self::$_instance;
         }
@@ -25,7 +26,7 @@ class HighlighterPHP extends HighlighterAbstract {
     {
         // Set default colors
         $this->setColors();
-        return str_replace(['&lt;?php&nbsp;<br />', '<code>', '</code>'], '', highlight_string("<?php ".$this->_text, true));
+        return str_replace(['&lt;?php&nbsp;<br />', '<code>', '</code>'], '', highlight_string("<?php ".self::$_text, true));
     }
 
     protected function setColors()
