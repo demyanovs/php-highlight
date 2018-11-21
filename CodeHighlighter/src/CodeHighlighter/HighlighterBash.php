@@ -76,7 +76,11 @@ class HighlighterBash extends HighlighterAbstract {
         return false;
     }
 
-    private function isCommentLine($word)
+    /**
+     * @param string $word
+     * @return bool
+     */
+    protected function isCommentLine(string $word): bool
     {
         if (substr($word, 0, 1) == "#") {
             return true;

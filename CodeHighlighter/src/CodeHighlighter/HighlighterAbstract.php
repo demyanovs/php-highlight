@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: vyacheslav.demyanov
- * Date: 25.10.18
- * Time: 10:28
- */
 
 namespace CodeHighlighter;
 
@@ -21,7 +15,7 @@ abstract class HighlighterAbstract
      */
     public function __construct(string $text)
     {
-        $this->_text = $text;
+        self::$_text = $text;
     }
 
     /**
