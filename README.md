@@ -62,6 +62,6 @@ You can wrote your own extended HighlighterAbstract or just use HighlighterPHP b
 
 ## Features
 - [x] set filename
-- [ ] line number
+- [x] line numbers
 - [ ] dark/light themes
 - [ ] copy button

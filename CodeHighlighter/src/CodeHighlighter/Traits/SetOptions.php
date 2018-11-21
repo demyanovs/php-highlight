@@ -19,6 +19,8 @@ trait SetOptions
 
     private static $_htmlColor = '#808080';
 
+    private $_flagColor = '#fa6e6e';
+
     /**
      * @param string $color
      */
@@ -129,5 +131,21 @@ trait SetOptions
     public static function getHtmlColor(): string
     {
         return self::$_htmlColor;
+    }
+
+    /**
+     * @return string
+     */
+    private function getFlagColor(): string
+    {
+        return $this->_flagColor;
+    }
+
+    /**
+     * @param string $color
+     */
+    private function setFlagColor(string $color)
+    {
+        $this->_flagColor = $color;
     }
 }

@@ -51,4 +51,7 @@
 
 .code-highlighter .line-number {
     margin-right: 15px;
+    color: #000;
+    font-weight: normal;
+    float: left;"
 }
