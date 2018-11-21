@@ -1,6 +1,6 @@
 # CodeHighlighter
 
-CodeHighlighter is a small lightweight PHP library for highlighting code that can be easily configured or extended.
+CodeHighlighter is a small PHP library for highlighting syntax that can be easily configured or extended.
 
 # Language syntax support
 * PHP
