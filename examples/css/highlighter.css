@@ -1,4 +1,4 @@
-code {
+.code-highlighter {
     display: block;
     padding: 5px;
     border: 1px solid #ddd;
@@ -21,8 +21,9 @@ code {
 }
 
 .code-block-wrapper .actions {
-    float: right;
+    float: left;
     line-height: 22px;
+    margin-right: 10px;
 }
 
 .code-block-wrapper .info {
@@ -32,4 +33,18 @@ code {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+}
+
+.code-block-wrapper .meta-divider {
+    display: inline-block;
+    width: 1px;
+    height: 15px;
+    margin: 0 3px;
+    vertical-align: middle;
+    background-color: #ddd;
+}
+
+.code-block-wrapper .fa.fa-copy {
+    font-size: 16px;
+    cursor: pointer;
 }

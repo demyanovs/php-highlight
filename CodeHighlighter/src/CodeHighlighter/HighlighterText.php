@@ -65,13 +65,15 @@ class HighlighterText {
             <div class="code-block-wrapper">
             <div class="meta">
                 <div class="actions">
-                        <span class="js-copy-clipboard">Copy</span>
+                        <span class="js-copy-clipboard" onclick="codeHighlighter.copyClipboard(this)"><i class="fa fa-copy"></i></span>
+                        <span class="meta-divider"></span>
                     </div>
+                    
                     <div class="info">
                         <span>'.$filePath.'</span>
                     </div>
                 </div>
             </div>
-            <code style="background-color: '.$bgColor.'">'.$text.'</code>';
+            <div class="code-highlighter" style="background-color: '.$bgColor.'">'.$text.'</div>';
     }
 }
