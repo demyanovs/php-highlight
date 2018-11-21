@@ -4,7 +4,7 @@ namespace CodeHighlighter;
 
 use CodeHighlighter\Traits\SetOptions;
 
-class HighlighterBash extends Highlighter {
+class HighlighterBash extends HighlighterBase {
 
     use SetOptions;
 

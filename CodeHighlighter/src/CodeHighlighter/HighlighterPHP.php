@@ -4,7 +4,7 @@ namespace CodeHighlighter;
 
 use CodeHighlighter\Traits\SetOptions;
 
-class HighlighterPHP extends Highlighter {
+class HighlighterPHP extends HighlighterBase {
 
     use SetOptions;
 

@@ -17,7 +17,7 @@ error_reporting(E_ALL);
 
 require_once '../CodeHighlighter/src/autoload.php';
 
-use CodeHighlighter\HighlighterText;
+use CodeHighlighter\Highlighter;
 use CodeHighlighter\HighlighterPHP;
 use CodeHighlighter\HighlighterBash;
 
@@ -68,7 +68,7 @@ fi
 </code>
 ';
 
-$highlighter = new HighlighterText($text);
+$highlighter = new Highlighter($text);
 HighlighterPHP::setKeywordColor('#a800a2; font-weight: bold');
 
 echo $highlighter->parse();
