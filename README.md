@@ -19,9 +19,9 @@ require_once '/path/to/CodeHighlighter/src/autoload.php';
 
 require_once '/path/to/CodeHighlighter/src/autoload.php';
 
-use CodeHighlighter\HighlighterText;
+use CodeHighlighter\Highlighter;
 
-$highlighter = new HighlighterText($text);
+$highlighter = new Highlighter($text);
 echo $highlighter->parse();
 
 ```
@@ -46,11 +46,11 @@ See [index.php](../master/examples/index.php)
 ```php
 <?php
 
-use CodeHighlighter\HighlighterText;
+use CodeHighlighter\Highlighter;
 use CodeHighlighter\HighlighterPHP;
 use CodeHighlighter\HighlighterBash;
 
-$highlighter = new HighlighterText($text);
+$highlighter = new Highlighter($text);
 HighlighterPHP::setCommentColor('#a800a2; font-weight: bold');
 HighlighterBash::setCommentColor('#e519f7;');
 
