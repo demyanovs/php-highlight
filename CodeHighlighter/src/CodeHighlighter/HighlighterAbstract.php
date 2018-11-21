@@ -55,6 +55,11 @@ abstract class HighlighterAbstract
         self::$_text = $text;
     }
 
+    protected function setLineNumber(int $number)
+    {
+        return '<span class="line-number">'.$number.'</span>';
+    }
+
     /**
      * @return mixed
      */

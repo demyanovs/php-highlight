@@ -36,10 +36,12 @@ class HighlighterBash extends HighlighterAbstract {
     {
         $by_lines = explode(PHP_EOL, self::$_text);
         $lines = [];
+        $i = 1;
         foreach ($by_lines as $key => $line) {
             // Comment line
-            if ($this->isComment($line)) {
-                $lines[$key] = self::colorWord($line, $line, self::getCommentColor());
+            if ($this->isCommentLine($line)) {
+                $lines[$key] = $this->setLineNumber($i).self::colorWord($line, $line, self::getCommentColor());
+                $i++;
                 continue;
             }
             $words = array_unique(explode(' ', $line));
@@ -54,8 +56,9 @@ class HighlighterBash extends HighlighterAbstract {
                 } else {
                     $line = self::colorWord($word, $line, self::getStringColor());
                 }
-                $lines[$key] = $line;
+                $lines[$key] = $this->setLineNumber($i).$line;
             }
+            $i++;
         }
 
         return $text = implode("<br />", $lines);
@@ -73,7 +76,7 @@ class HighlighterBash extends HighlighterAbstract {
         return false;
     }
 
-    private function isComment($word)
+    private function isCommentLine($word)
     {
         if (substr($word, 0, 1) == "#") {
             return true;

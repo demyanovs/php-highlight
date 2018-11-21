@@ -28,7 +28,7 @@ class HighlighterText {
             function ($matches) {
                 $lang = $matches[1];
                 $filePath = $matches[3];
-                $block = $matches[4];
+                $block = trim($matches[4]);
                 return $this->parseBlock($block, $lang, $filePath);
             },
             $this->_text);

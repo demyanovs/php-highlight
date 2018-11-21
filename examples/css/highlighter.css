@@ -48,3 +48,7 @@
     font-size: 16px;
     cursor: pointer;
 }
+
+.code-highlighter .line-number {
+    margin-right: 15px;
+}
