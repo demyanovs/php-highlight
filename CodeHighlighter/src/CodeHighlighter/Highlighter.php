@@ -47,7 +47,7 @@ class Highlighter {
         } elseif ($lang == "bash") {
             $highlighter = HighlighterBash::getInstance($block);
         } elseif ($lang == "xml") {
-            $highlighter = HighlighterXml::getInstance($block);
+            $highlighter = HighlighterXML::getInstance($block);
         } else {
             $highlighter = new HighlighterPHP($block);
         }
