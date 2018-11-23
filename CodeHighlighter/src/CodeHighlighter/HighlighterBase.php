@@ -2,11 +2,13 @@
 
 namespace CodeHighlighter;
 
-use CodeHighlighter\Traits\SetOptions;
+use CodeHighlighter\Theme\DrakulaTheme;
+//use CodeHighlighter\Traits\SetOptions;
 
 class HighlighterBase
 {
-    use SetOptions;
+//    use SetOptions;
+
     /**
      * @var string
      */
@@ -16,6 +18,8 @@ class HighlighterBase
 
     private $_showLineNumbers = true;
 
+    public $theme;
+
     /**
      * Highlighter constructor.
      * @param string $text
@@ -23,6 +27,7 @@ class HighlighterBase
     public function __construct(string $text)
     {
         self::$_text = $text;
+        $this->theme = new Theme\DrakulaTheme();
     }
 
     /**
@@ -36,7 +41,7 @@ class HighlighterBase
         foreach ($by_lines as $key => $line) {
             // Comment line
             if ($this->isCommentLine($line)) {
-                $lines[$key] = $this->setLineNumber($i).self::colorWord($line, $line, self::getCommentColor());
+                $lines[$key] = $this->setLineNumber($i).self::colorWord($line, $line, $this->theme->getCommentColor());
                 $i++;
                 continue;
             }
@@ -44,13 +49,13 @@ class HighlighterBase
             foreach ($words as $word) {
                 $word = trim($word);
                 if ($this->isKeyword($word)) {
-                    $line = self::colorWord($word, $line, self::getKeywordColor());
+                    $line = self::colorWord($word, $line, $this->theme->getKeywordColor());
                 } elseif ($this->isFlag($word)) {
-                    $line = self::colorWord($word, $line, self::getFlagColor());
+                    $line = self::colorWord($word, $line, $this->theme->getFlagColor());
                 } elseif ($this->isVariable($word)) {
-                    $line = self::colorWord($word, $line, self::getVariableColor());
+                    $line = self::colorWord($word, $line, $this->theme->getVariableColor());
                 } else {
-                    $line = self::colorWord($word, $line, self::getStringColor());
+                    $line = self::colorWord($word, $line, $this->theme->getStringColor());
                 }
                 $lines[$key] = $this->setLineNumber($i).$line;
             }

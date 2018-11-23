@@ -16,27 +16,37 @@ ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
 require_once '../CodeHighlighter/src/autoload.php';
+require_once '../CodeHighlighter/src/CodeHighlighter/Themes/Theme.php';
+require_once '../CodeHighlighter/src/CodeHighlighter/Themes/DrakulaTheme.php';
+
 
 use CodeHighlighter\Highlighter;
 use CodeHighlighter\HighlighterPHP;
 use CodeHighlighter\HighlighterBash;
+use CodeHighlighter\Theme\DrakulaTheme;
 
 $text = '
 <h2>PHP</h2>
 <code data-lang="php" data-file-path="php-code-highlighter/examples/index.php">
-private static function strPos()
+use Symfony\Component\HttpFoundation\Response;
+use Twig\Environment;
+
+class ArticleController extends AbstractController
 {
-    $mystring = "abc";
-    $findme   = "a";
-    $pos = strpos($mystring, $findme);
-    
-    // Note our use of ===.  Simply == would not work as expected
-    // because the position of "a" was the 0th (first) character.
-    if ($pos === false) {
-        echo "<p>The string <b>"$findme"</b> was not found in the string $mystring</p>";
-    } else {
-        echo "The string "$findme" was found in the string $mystring";
-        echo " and exists at position $pos";
+    private static function strPos()
+    {
+        $mystring = "abc";
+        $findme   = "a";
+        $pos = strpos($mystring, $findme);
+        
+        // Note our use of ===.  Simply == would not work as expected
+        // because the position of "a" was the 0th (first) character.
+        if ($pos === false) {
+            echo "<p>The string <b>"$findme"</b> was not found in the string $mystring</p>";
+        } else {
+            echo "The string "$findme" was found in the string $mystring";
+            echo " and exists at position $pos";
+        }
     }
 }
 </code>
@@ -98,7 +108,7 @@ fi
 ';
 
 $highlighter = new Highlighter($text);
-HighlighterPHP::setKeywordColor('#a800a2; font-weight: bold');
+//HighlighterPHP::setKeywordColor('#a800a2; font-weight: bold');
 
 echo $highlighter->parse();
 

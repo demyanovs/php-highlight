@@ -1,33 +1,62 @@
 <?php
 
-namespace CodeHighlighter\Traits;
+namespace CodeHighlighter\Theme;
 
-trait SetOptions
+//use CodeHighlighter\Traits\SetOptions;
+
+class Theme
 {
 
-    private static $_defaultColor = '#0000BB';
+//    use SetOptions;
 
-    private static $_backgroundColor = '#FFF';
+    private static $_defaultColor = '#558eac';
 
-    private static $_commentColor = '#FF8000';
+    private static $_backgroundColor = '#fff';
 
-    private static $_keywordColor = '#007700; font-weight: bold';
+    private static $_commentColor = '#558eac';
 
-    private static $_variableColor = '#0000BB';
+    private static $_keywordColor = '#558eac; font-weight: bold';
 
-    private static $_stringColor = '#DD0000';
+    private static $_variableColor = '#558eac';
 
-    private static $_htmlColor = '#808080';
+    private static $_stringColor = '#558eac';
 
-    private static $_flagColor = '#fa6e6e';
+    private static $_htmlColor = '#558eac';
 
-    private static $_XMLTagColor = '#008000';
+    private static $_flagColor = '#558eac';
+
+    private static $_XMLTagColor = '#558eac';
 
     private static $_XMLAttrNameColor = '#BC7A00;';
 
     private static $_XMLAttrValueColor = '#BA2121';
 
     private static $_XMLInfoColor = '#800000';
+
+
+
+    public function __construct()
+    {
+        self::setDefaultColor(self::$_defaultColor);
+        self::setBackgroundColor(self::$_backgroundColor);
+        self::setCommentColor(self::$_commentColor);
+        self::setKeywordColor(self::$_keywordColor);
+        self::setVariableColor(self::$_variableColor);
+        self::setStringColor(self::$_stringColor);
+        self::setHtmlColor(self::$_htmlColor);
+        self::setFlagColor(self::$_flagColor);
+        self::setXMLTagColor(self::$_XMLTagColor);
+        self::setXMLAttrNameColor(self::$_XMLAttrNameColor);
+        self::setXMLAttrValueColor(self::$_XMLAttrValueColor);
+        self::setXMLInfoColor(self::$_XMLInfoColor);
+
+        ini_set("highlight.comment", self::getCommentColor());
+        ini_set("highlight.default", self::getDefaultColor());
+        ini_set("highlight.html", self::getHtmlColor());
+        ini_set("highlight.keyword", self::getKeywordColor());
+        ini_set("highlight.string", self::getStringColor());
+    }
+
 
     /**
      * @param string $color

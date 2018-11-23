@@ -52,7 +52,7 @@ class Highlighter {
             $highlighter = new HighlighterPHP($block);
         }
         $block = $highlighter->highlight();
-        return $this->wrapCode($block, $highlighter::getBackgroundColor(), $filePath);
+        return $this->wrapCode($block, $highlighter->theme->getBackgroundColor(), $filePath);
     }
 
     /**
