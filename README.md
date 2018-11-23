@@ -6,6 +6,7 @@ CodeHighlighter is a small PHP library for highlighting syntax that can be easil
 * PHP
 * JavaScript
 * Bash
+* XML
 
 ## How it works
 The library parses the text, finds the tag \<code>, read the attribute data-lang, and for this reason decides how to highlight the syntax of this block.

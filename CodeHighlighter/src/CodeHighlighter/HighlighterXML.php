@@ -10,8 +10,6 @@ class HighlighterXML extends HighlighterBase {
 
     private static $_instance;
 
-    private static $_tag_color = '#808000; font-weight: bold;';
-
     public static function getInstance(string $text)
     {
         self::setText($text);
@@ -23,36 +21,16 @@ class HighlighterXML extends HighlighterBase {
 
     function highlight()
     {
-        $s = self::$_text;
-        $text = preg_replace_callback(
-            '/[\s]?(<[a-zA-Z\/?!]+>?|\?>)/im',
-            function ($matches) {
-                return '<span style="color: #808000;">'.htmlspecialchars($matches[0]).'</span>';
-            },
-            $s
-        );
-/*
-        $text = preg_replace_callback(
-            '/>(.*?)</ims',
-            function ($matches) {
-                return '<span style="color: red;">'.$matches[1].'</span>';
-            },
-            $text
-        );
-*/
+        $text = htmlspecialchars(self::$_text);
+        // Brackets
+        $text = preg_replace("#&lt;([/]*?)(.*)([\s]*?)&gt;#sU",
+            "<span style=\"color: ".self::getXMLTagColor()."\">&lt;\\1\\2\\3&gt;</span>",$text);
+        // Xml version
+        $text = preg_replace("#&lt;([\?])(.*)([\?])&gt;#sU",
+            "<span style=\"color: ".self::getXMLInfoColor()."\">&lt;\\1\\2\\3&gt;</span>",$text);
+        // Attributes
+        $text = preg_replace("#([^\s]*?)\=(&quot;|')(.*)(&quot;|')#isU",
+            "<span style=\"color: ".self::getXMLAttrNameColor()."\">\\1</span>=<span style=\"color: ".self::getXMLAttrValueColor()."\">\\2\\3\\4</span>",$text);
         return $text;
-    }
-
-    /**
-     * @param string $color
-     */
-    public static function setTagColor(string $color)
-    {
-        self::$_tag_color = $color;
-    }
-
-    public static function getTagColor()
-    {
-        return self::$_tag_color;
     }
 }

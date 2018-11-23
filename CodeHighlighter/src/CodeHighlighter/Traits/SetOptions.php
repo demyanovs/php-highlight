@@ -19,7 +19,15 @@ trait SetOptions
 
     private static $_htmlColor = '#808080';
 
-    private $_flagColor = '#fa6e6e';
+    private static $_flagColor = '#fa6e6e';
+
+    private static $_XMLTagColor = '#008000';
+
+    private static $_XMLAttrNameColor = '#BC7A00;';
+
+    private static $_XMLAttrValueColor = '#BA2121';
+
+    private static $_XMLInfoColor = '#800000';
 
     /**
      * @param string $color
@@ -138,7 +146,7 @@ trait SetOptions
      */
     private function getFlagColor(): string
     {
-        return $this->_flagColor;
+        return self::$_flagColor;
     }
 
     /**
@@ -146,6 +154,58 @@ trait SetOptions
      */
     private function setFlagColor(string $color)
     {
-        $this->_flagColor = $color;
+        self::$_flagColor = $color;
+    }
+
+    /**
+     * @param string $color
+     */
+    public static function setXMLTagColor(string $color)
+    {
+        self::$_XMLTagColor = $color;
+    }
+
+    public static function getXMLTagColor()
+    {
+        return self::$_XMLTagColor;
+    }
+
+    /**
+     * @param string $color
+     */
+    public static function setXMLAttrNameColor(string $color)
+    {
+        self::$_XMLAttrNameColor = $color;
+    }
+
+    public static function getXMLAttrNameColor()
+    {
+        return self::$_XMLAttrNameColor;
+    }
+
+    /**
+     * @param string $color
+     */
+    public static function setXMLAttrValueColor(string $color)
+    {
+        self::$_XMLAttrValueColor = $color;
+    }
+
+    public static function getXMLAttrValueColor()
+    {
+        return self::$_XMLAttrValueColor;
+    }
+
+    /**
+     * @param string $color
+     */
+    public static function setXMLInfoColor(string $color)
+    {
+        self::$_XMLInfoColor = $color;
+    }
+
+    public static function getXMLInfoColor()
+    {
+        return self::$_XMLInfoColor;
     }
 }
