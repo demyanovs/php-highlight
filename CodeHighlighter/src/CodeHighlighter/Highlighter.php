@@ -2,20 +2,30 @@
 
 namespace CodeHighlighter;
 
+use CodeHighlighter\Theme\Theme;
+
 class Highlighter {
 
     /**
      * @var string
      */
-    private $_text;
+    protected static $_text;
+
+    private $theme;
+
+    public static $_showActionsPanel = true;
+
+    public static $_showLineNumbers = true;
 
     /**
-     * HighlightText constructor.
+     * Highlighter constructor.
      * @param string $text
+     * @param string $theme
      */
-    public function __construct(string $text)
+    public function __construct(string $text, string $theme = '')
     {
-        $this->_text = $text;
+        self::$_text = $text;
+        $this->theme = Theme::getTheme($theme);
     }
 
     /**
@@ -31,7 +41,7 @@ class Highlighter {
                 $block = trim($matches[4]);
                 return $this->parseBlock($block, $lang, $filePath);
             },
-            $this->_text);
+            self::$_text);
     }
 
     /**
@@ -46,11 +56,12 @@ class Highlighter {
             $highlighter = HighlighterPHP::getInstance($block);
         } elseif ($lang == "bash") {
             $highlighter = HighlighterBash::getInstance($block);
-        } elseif ($lang == "xml") {
+        } elseif ($lang == "xml" || $lang == "html") {
             $highlighter = HighlighterXML::getInstance($block);
         } else {
-            $highlighter = new HighlighterPHP($block);
+            $highlighter = HighlighterPHP::getInstance($block);
         }
+        $highlighter->setTheme($this->theme);
         $block = $highlighter->highlight();
         return $this->wrapCode($block, $highlighter->theme->getBackgroundColor(), $filePath);
     }
@@ -63,17 +74,30 @@ class Highlighter {
      */
     private function wrapCode(string $text, string $bgColor = '', string $filePath = ''): string
     {
+        $wrapper = '<div class="code-block-wrapper">';
+        if (self::$_showActionsPanel) {
+            $wrapper .= '
+            <div class="meta">
+                <div class="actions">
+                    <span class="js-copy-clipboard" onclick="codeHighlighter.copyClipboard(this)"><i class="fa fa-copy"></i></span>
+                    <span class="meta-divider"></span>
+                </div>
+                <div class="info">
+                    <span>'.$filePath.'</span>
+                </div>
+            </div>';
+        }
+        $wrapper .= '</div><div class="code-highlighter" style="background-color: '.$bgColor.'">'.$text.'</div>';
+        return $wrapper;
+
+
+
         return '
             <div class="code-block-wrapper">
             <div class="meta">
-                <div class="actions">
-                        <span class="js-copy-clipboard" onclick="codeHighlighter.copyClipboard(this)"><i class="fa fa-copy"></i></span>
-                        <span class="meta-divider"></span>
-                    </div>
+
                     
-                    <div class="info">
-                        <span>'.$filePath.'</span>
-                    </div>
+   
                 </div>
             </div>
             <div class="code-highlighter" style="background-color: '.$bgColor.'">'.$text.'</div>';

@@ -2,11 +2,7 @@
 
 namespace CodeHighlighter;
 
-use CodeHighlighter\Traits\SetOptions;
-
 class HighlighterXML extends HighlighterBase {
-
-    use SetOptions;
 
     private static $_instance;
 
@@ -24,13 +20,27 @@ class HighlighterXML extends HighlighterBase {
         $text = htmlspecialchars(self::$_text);
         // Brackets
         $text = preg_replace("#&lt;([/]*?)(.*)([\s]*?)&gt;#sU",
-            "<span style=\"color: ".self::getXMLTagColor()."\">&lt;\\1\\2\\3&gt;</span>",$text);
+            "<span style=\"color: ".$this->theme::getXMLTagColor()."\">&lt;\\1\\2\\3&gt;</span>",$text);
         // Xml version
         $text = preg_replace("#&lt;([\?])(.*)([\?])&gt;#sU",
-            "<span style=\"color: ".self::getXMLInfoColor()."\">&lt;\\1\\2\\3&gt;</span>",$text);
+            "<span style=\"color: ".$this->theme::getXMLInfoColor()."\">&lt;\\1\\2\\3&gt;</span>",$text);
         // Attributes
         $text = preg_replace("#([^\s]*?)\=(&quot;|')(.*)(&quot;|')#isU",
-            "<span style=\"color: ".self::getXMLAttrNameColor()."\">\\1</span>=<span style=\"color: ".self::getXMLAttrValueColor()."\">\\2\\3\\4</span>",$text);
-        return $text;
+            "<span style=\"color: ".$this->theme::getXMLAttrNameColor()."\">\\1</span>=<span style=\"color: ".$this->theme::getXMLAttrValueColor()."\">\\2\\3\\4</span>",$text);
+
+        if (Highlighter::$_showLineNumbers) {
+            $by_lines = explode(PHP_EOL, $text);
+            $lines = [];
+            if ($by_lines) {
+                $i = 1;
+                foreach ($by_lines as $line) {
+                    $lines[] = self::setLineNumber($i).$line;
+                    $i++;
+                }
+                $text = implode(PHP_EOL, $lines);
+            }
+        }
+
+        return '<span style="color: '.$this->theme->getStringColor().'">'.$text.'</span>';
     }
 }

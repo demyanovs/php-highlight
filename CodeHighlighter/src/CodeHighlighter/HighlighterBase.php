@@ -2,12 +2,8 @@
 
 namespace CodeHighlighter;
 
-use CodeHighlighter\Theme\DrakulaTheme;
-//use CodeHighlighter\Traits\SetOptions;
-
 class HighlighterBase
 {
-//    use SetOptions;
 
     /**
      * @var string
@@ -16,18 +12,19 @@ class HighlighterBase
 
     protected $_keywords = [];
 
-    private $_showLineNumbers = true;
-
+    /**
+     * @var Theme
+     */
     public $theme;
 
     /**
-     * Highlighter constructor.
+     * HighlighterBase constructor.
      * @param string $text
+     * @param null $theme
      */
     public function __construct(string $text)
     {
         self::$_text = $text;
-        $this->theme = new Theme\DrakulaTheme();
     }
 
     /**
@@ -55,14 +52,14 @@ class HighlighterBase
                 } elseif ($this->isVariable($word)) {
                     $line = self::colorWord($word, $line, $this->theme->getVariableColor());
                 } else {
-                    $line = self::colorWord($word, $line, $this->theme->getStringColor());
+                    //$line = self::colorWord($word, $line, $this->theme->getStringColor());
                 }
                 $lines[$key] = $this->setLineNumber($i).$line;
             }
             $i++;
         }
 
-        return implode("<br />", $lines);
+        return '<span style="color:'.$this->theme->getStringColor().'">'.implode("<br />", $lines).'</span>';
     }
 
     /**
@@ -86,8 +83,8 @@ class HighlighterBase
 
     protected function setLineNumber(int $number)
     {
-        if ($this->_showLineNumbers) {
-            return '<span class="line-number">' . $number . '</span>';
+        if (Highlighter::$_showLineNumbers) {
+            return '<span class="line-number" style="color: '.$this->theme->getDefaultColor().'">' . $number . '</span>';
         } else {
             return '';
         }
@@ -139,5 +136,13 @@ class HighlighterBase
             return true;
         }
         return false;
+    }
+
+    /**
+     * @param Theme $theme
+     */
+    public function setTheme($theme)
+    {
+        $this->theme = $theme;
     }
 }

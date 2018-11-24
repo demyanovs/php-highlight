@@ -2,11 +2,7 @@
 
 namespace CodeHighlighter;
 
-//use CodeHighlighter\Traits\SetOptions;
-
 class HighlighterPHP extends HighlighterBase {
-
-//    use SetOptions;
 
     private static $_instance;
 
@@ -40,4 +36,6 @@ class HighlighterPHP extends HighlighterBase {
 
         return implode("<br />", $lines);
     }
+
+
 }

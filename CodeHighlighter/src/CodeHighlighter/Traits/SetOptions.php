@@ -5,29 +5,29 @@ namespace CodeHighlighter\Traits;
 trait SetOptions
 {
 
-    private static $_defaultColor = '#0000BB';
+    private static $_defaultColor;
 
-    private static $_backgroundColor = '#FFF';
+    private static $_backgroundColor;
 
-    private static $_commentColor = '#FF8000';
+    private static $_commentColor;
 
-    private static $_keywordColor = '#007700; font-weight: bold';
+    private static $_keywordColor;
 
-    private static $_variableColor = '#0000BB';
+    private static $_variableColor;
 
-    private static $_stringColor = '#DD0000';
+    private static $_stringColor;
 
-    private static $_htmlColor = '#808080';
+    private static $_htmlColor;
 
-    private static $_flagColor = '#fa6e6e';
+    private static $_flagColor;
 
-    private static $_XMLTagColor = '#008000';
+    private static $_XMLTagColor;
 
-    private static $_XMLAttrNameColor = '#BC7A00;';
+    private static $_XMLAttrNameColor;
 
-    private static $_XMLAttrValueColor = '#BA2121';
+    private static $_XMLAttrValueColor;
 
-    private static $_XMLInfoColor = '#800000';
+    private static $_XMLInfoColor;
 
     /**
      * @param string $color
@@ -207,5 +207,45 @@ trait SetOptions
     public static function getXMLInfoColor()
     {
         return self::$_XMLInfoColor;
+    }
+
+    /**
+     * @param string $color
+     */
+    public static function setPHPDefaultColor(string $color)
+    {
+        ini_set("highlight.default", $color);
+    }
+
+    /**
+     * @param string $color
+     */
+    public static function setPHPCommentColor(string $color)
+    {
+        ini_set("highlight.comment", $color);
+    }
+
+    /**
+     * @param string $color
+     */
+    public static function setPHPHtmlColor(string $color)
+    {
+        ini_set("highlight.html", $color);
+    }
+
+    /**
+     * @param string $color
+     */
+    public static function setPHPKeywordColor(string $color)
+    {
+        ini_set("highlight.keyword", $color);
+    }
+
+    /**
+     * @param string $color
+     */
+    public static function setPHPStringColor(string $color)
+    {
+        ini_set("highlight.string", $color);
     }
 }
