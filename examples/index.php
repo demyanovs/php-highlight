@@ -18,7 +18,6 @@ error_reporting(E_ALL);
 require_once '../CodeHighlighter/src/autoload.php';
 require_once '../CodeHighlighter/src/CodeHighlighter/Themes/Theme.php';
 
-
 use CodeHighlighter\Highlighter;
 use CodeHighlighter\HighlighterPHP;
 use CodeHighlighter\HighlighterBash;
@@ -124,9 +123,9 @@ genApacheConf(){
 <code data-lang="xml">
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE recipe>
-<recipe name="хлеб" preptime="5min" cooktime="180min">
+<recipe name="bread" preptime="5min" cooktime="180min">
    <title>
-      Простой хлеб
+      Simple bread
    </title>
    <composition>
       <ingredient amount="3" unit="стакан">Мука</ingredient>
@@ -135,13 +134,13 @@ genApacheConf(){
    </composition>
    <instructions>
      <step>
-        Смешать все ингредиенты и тщательно замесить. 
+        Mix all ingredients and knead thoroughly.
      </step>
      <step>
-        Закрыть тканью и оставить на один час в тёплом помещении. 
+        Cover with a cloth and leave for one hour in a warm room.
      </step>
      <step>
-        Замесить ещё раз, положить на противень и поставить в духовку.
+        Knead again, put on a baking sheet and put in the oven.
      </step>
    </instructions>
 </recipe>
@@ -162,19 +161,17 @@ genApacheConf(){
   <p checked class="title" id=\'title\'>Title</p>
   <!-- here goes the rest of the page -->
   <div class="actions">
-    Смешать все ингредиенты и тщательно замесить. 
+    Mix all ingredients and knead thoroughly
   </div>
 </body>
 </code>
 ';
 
 $highlighter = new Highlighter($text, 'drakula');
+Highlighter::$_showLineNumbers = true;
+Highlighter::$_showActionsPanel = true;
 //if necessary, the theme settings are overwritten here
 //Theme::getTheme()::setBackgroundColor('#ccc');
-
-
-
-
 echo $highlighter->parse();
 
 ?>

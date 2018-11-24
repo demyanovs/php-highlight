@@ -39,12 +39,9 @@ echo $highlighter->parse();
 Default - light theme
 Drakula - dark theme
 
-
-
 ## Overwritten theme colors
 Library has its own themes, but all theme colors can be overwritten like this:
 ```php
-
 // Default
 Theme::getTheme()::setDefaultColor('#000;');
 Theme::getTheme()::setBackgroundColor('#f8f8f8');
@@ -67,6 +64,14 @@ Theme::getTheme()::setPHPCommentColor('#FF8000;');
 Theme::getTheme()::setPHPHtmlColor('#fbc201;');
 Theme::getTheme()::setPHPKeywordColor('#007700;');
 Theme::getTheme()::setPHPStringColor('#DD0000;');
+```
+
+##Congiguration
+```php
+// Show line numbers
+Highlighter::$_showLineNumbers = true;
+// Show action panel (copy button)
+Highlighter::$_showActionsPanel = true;
 ```
 
 ## Features
