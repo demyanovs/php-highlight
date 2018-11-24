@@ -2,11 +2,7 @@
 
 namespace CodeHighlighter;
 
-use CodeHighlighter\Traits\SetOptions;
-
 class HighlighterPHP extends HighlighterBase {
-
-    use SetOptions;
 
     private static $_instance;
 
@@ -24,7 +20,7 @@ class HighlighterPHP extends HighlighterBase {
      */
     public function highlight()
     {
-        $this->setColors();
+        //self::setColors();
         $text = str_replace(['&lt;?php&nbsp;', '<code>', '</code>'], '', highlight_string("<?php ".self::$_text, true));
         $lines = [];
         $i = 1;
@@ -41,12 +37,5 @@ class HighlighterPHP extends HighlighterBase {
         return implode("<br />", $lines);
     }
 
-    protected function setColors()
-    {
-        ini_set("highlight.comment", self::getCommentColor());
-        ini_set("highlight.default", self::getDefaultColor());
-        ini_set("highlight.html", self::getHtmlColor());
-        ini_set("highlight.keyword", self::getKeywordColor());
-        ini_set("highlight.string", self::getStringColor());
-    }
+
 }
