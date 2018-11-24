@@ -69,7 +69,7 @@ Theme::getTheme()::setPHPKeywordColor('#007700;');
 Theme::getTheme()::setPHPStringColor('#DD0000;');
 ```
 
-##Configuration
+## Configuration
 ```php
 // Show line numbers
 Highlighter::$showLineNumbers = true;
