@@ -11,11 +11,14 @@ class Highlighter {
      */
     protected static $_text;
 
-    private $theme;
+    public static $showActionsPanel = true;
 
-    public static $_showActionsPanel = true;
+    public static $showLineNumbers = true;
 
-    public static $_showLineNumbers = true;
+    /**
+     * @var Theme
+     */
+    private $_theme;
 
     /**
      * Highlighter constructor.
@@ -25,7 +28,7 @@ class Highlighter {
     public function __construct(string $text, string $theme = '')
     {
         self::$_text = $text;
-        $this->theme = Theme::getTheme($theme);
+        $this->_theme = Theme::getTheme($theme);
     }
 
     /**
@@ -61,9 +64,9 @@ class Highlighter {
         } else {
             $highlighter = HighlighterPHP::getInstance($block);
         }
-        $highlighter->setTheme($this->theme);
+        $highlighter->setTheme($this->_theme);
         $block = $highlighter->highlight();
-        return $this->wrapCode($block, $highlighter->theme->getBackgroundColor(), $filePath);
+        return $this->wrapCode($block, $this->_theme::getBackgroundColor(), $filePath);
     }
 
     /**
@@ -75,7 +78,7 @@ class Highlighter {
     private function wrapCode(string $text, string $bgColor = '', string $filePath = ''): string
     {
         $wrapper = '<div class="code-block-wrapper">';
-        if (self::$_showActionsPanel) {
+        if (self::$showActionsPanel) {
             $wrapper .= '
             <div class="meta">
                 <div class="actions">
@@ -89,17 +92,5 @@ class Highlighter {
         }
         $wrapper .= '</div><div class="code-highlighter" style="background-color: '.$bgColor.'">'.$text.'</div>';
         return $wrapper;
-
-
-
-        return '
-            <div class="code-block-wrapper">
-            <div class="meta">
-
-                    
-   
-                </div>
-            </div>
-            <div class="code-highlighter" style="background-color: '.$bgColor.'">'.$text.'</div>';
     }
 }

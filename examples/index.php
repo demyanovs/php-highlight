@@ -19,103 +19,76 @@ require_once '../CodeHighlighter/src/autoload.php';
 require_once '../CodeHighlighter/src/CodeHighlighter/Themes/Theme.php';
 
 use CodeHighlighter\Highlighter;
-use CodeHighlighter\HighlighterPHP;
-use CodeHighlighter\HighlighterBash;
-use CodeHighlighter\Theme\Theme;
 
 $text = '
 <h2>PHP</h2>
 <code data-lang="php" data-file-path="php-code-highlighter/examples/index.php">
-require_once \'Zend/Uri/Http.php\';
-
-namespace Location\Web;
-
-interface Factory
+abstract class AbstractClass
 {
-    static function _factory();
+    // Our abstract method only needs to define the required arguments
+    abstract protected function prefixName($name);
+
 }
 
-abstract class URI extends BaseURI implements Factory
+class ConcreteClass extends AbstractClass
 {
-    abstract function test();
 
-    public static $st1 = 1;
-    const ME = "Yo";
-    var $list = NULL;
-    private $var;
-
-    /**
-     * Returns a URI
-     *
-     * @return URI
-     */
-    static public function _factory($stats = array(), $uri = \'http\')
-    {
-        echo __METHOD__;
-        $uri = explode(\':\', $uri, 0b10);
-        $schemeSpecific = isset($uri[1]) ? $uri[1] : \'\';
-        $desc = \'Multi
-line description\';
-
-        // Security check
-        if (!ctype_alnum($scheme)) {
-            throw new Zend_Uri_Exception(\'Illegal scheme\');
+    // Our child class may define optional arguments not in the parent\'s signature
+    public function prefixName($name, $separator = ".") {
+        if ($name == "Pacman") {
+            $prefix = "Mr";
+        } elseif ($name == "Pacwoman") {
+            $prefix = "Mrs";
+        } else {
+            $prefix = "";
         }
-
-        $this->var = 0 - self::$st;
-        $this->list = list(Array("1"=> 2, 2=>self::ME, 3 => \Location\Web\URI::class));
-
-        return [
-            \'uri\'   => $uri,
-            \'value\' => null,
-        ];
+        return "{$prefix}{$separator} {$name}";
     }
 }
 
-echo URI::ME . URI::$st1;
-
-__halt_compiler () ; datahere
-datahere
-datahere */
-datahere
+$class = new ConcreteClass;
+echo $class->prefixName("Pacman"), "\n";
+echo $class->prefixName("Pacwoman"), "\n";
 </code>
 
 <h2>JavaScript</h2>
 <code data-lang="js" data-file-path="example.js">
-function $initHighlight(block, cls) {
-  try {
-    if (cls.search(/\bno\-highlight\b/) != -1)
-      return process(block, true, 0x0F) +
-             ` class="${cls}"`;
-  } catch (e) {
-    /* handle exception */
-  }
-  for (var i = 0 / 2; i < classes.length; i++) {
-    if (checkCondition(classes[i]) === undefined)
-      console.log(\'undefined\');
-  }
-}
+var searchHelp = {
+    showImages: true,
+    showDesc: true,
+    minChars: 3,
+    cmd: \'show_search_help\',
+    keysDownBlock: [13, 37, 38, 39, 40],
 
-export  $initHighlight;
+    showSearchHelp: function (obj) {
+        var self = this,
+            searchText = $(obj).val(),
+            searchName = $(obj).attr(\'name\'),
+            autocompleteContainerId = \'#\' + $(obj).data(\'container-id\');
+
+        if ( $.inArray($(obj).which, this.keysDownBlock) === -1 ) {
+            if (searchText.length < self.minChars) {
+                return;
+            }
+            else {
+                // Hide help
+                $(autocompleteContainerId + \' ul\').css(\'display\', \'none\');
+            }
+        }
+    }
+};
 </code>
 
 <h2>Bash</h2>
 <code data-lang="bash" data-file-path="example.sh">
 #!/bin/bash
-
-###### CONFIG
-ACCEPTED_HOSTS = root.hag_accepted.conf
-BE_VERBOSE=false
-
-if [ "$UID" -ne 0 ]
+read -p "Enter number : " n
+if test $n -ge 0
 then
- echo "Superuser rights required"
- exit 2
+	echo "$n is positive number."
+else
+	echo "$n number is negative number."
 fi
-
-genApacheConf(){
- echo -e "# Host ${HOME_DIR}$1/$2 :"
-}
 </code>
 
 
@@ -168,9 +141,10 @@ genApacheConf(){
 ';
 
 $highlighter = new Highlighter($text, 'drakula');
-Highlighter::$_showLineNumbers = true;
-Highlighter::$_showActionsPanel = true;
-//if necessary, the theme settings are overwritten here
+// Configuration
+//Highlighter::$showLineNumbers = true;
+//Highlighter::$showActionsPanel = true;
+//Theme settings are overwritten here
 //Theme::getTheme()::setBackgroundColor('#ccc');
 echo $highlighter->parse();
 

@@ -9,7 +9,7 @@ class HighlighterBash extends HighlighterBase {
     /**
      * @var array
      */
-    protected $_keywords = ['wget', 'tar', 'cd', 'rsync', 'cp', 'echo', 'if', 'else', 'then', 'fi', 'while', 'echo', '=', '==', '===', 'exit'];
+    protected $_keywords = ['wget', 'tar', 'cd', 'rsync', 'cp', 'echo', 'if', 'else', 'then', 'fi', 'while', 'echo', '=', '==', '===', 'exit', 'for', 'done', '<', '>', 'read'];
 
     public static function getInstance(string $text)
     {

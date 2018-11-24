@@ -30,6 +30,9 @@ require_once '../CodeHighlighter/src/CodeHighlighter/Themes/Theme.php';
 use CodeHighlighter\Highlighter;
 
 $highlighter = new Highlighter($text, 'drakula');
+// Configuration
+//Highlighter::$showLineNumbers = true;
+//Highlighter::$showActionsPanel = true;
 //The theme colors are overwritten here (if necessary)
 //Theme::getTheme()::setBackgroundColor('#ccc');
 echo $highlighter->parse();
@@ -66,12 +69,12 @@ Theme::getTheme()::setPHPKeywordColor('#007700;');
 Theme::getTheme()::setPHPStringColor('#DD0000;');
 ```
 
-##Congiguration
+##Configuration
 ```php
 // Show line numbers
-Highlighter::$_showLineNumbers = true;
+Highlighter::$showLineNumbers = true;
 // Show action panel (copy button)
-Highlighter::$_showActionsPanel = true;
+Highlighter::$showActionsPanel = true;
 ```
 
 ## Features

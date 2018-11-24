@@ -2,6 +2,8 @@
 
 namespace CodeHighlighter;
 
+use CodeHighlighter\Theme\Theme;
+
 class HighlighterBase
 {
 
@@ -15,7 +17,7 @@ class HighlighterBase
     /**
      * @var Theme
      */
-    public $theme;
+    protected $_theme;
 
     /**
      * HighlighterBase constructor.
@@ -25,6 +27,14 @@ class HighlighterBase
     public function __construct(string $text)
     {
         self::$_text = $text;
+    }
+
+    /**
+     * @param Theme $theme
+     */
+    public function setTheme(Theme $theme)
+    {
+        $this->_theme = $theme;
     }
 
     /**
@@ -38,7 +48,7 @@ class HighlighterBase
         foreach ($by_lines as $key => $line) {
             // Comment line
             if ($this->isCommentLine($line)) {
-                $lines[$key] = $this->setLineNumber($i).self::colorWord($line, $line, $this->theme->getCommentColor());
+                $lines[$key] = $this->setLineNumber($i).self::colorWord($line, $line, $this->_theme::getCommentColor());
                 $i++;
                 continue;
             }
@@ -46,11 +56,11 @@ class HighlighterBase
             foreach ($words as $word) {
                 $word = trim($word);
                 if ($this->isKeyword($word)) {
-                    $line = self::colorWord($word, $line, $this->theme->getKeywordColor());
+                    $line = self::colorWord($word, $line, $this->_theme::getKeywordColor());
                 } elseif ($this->isFlag($word)) {
-                    $line = self::colorWord($word, $line, $this->theme->getFlagColor());
+                    $line = self::colorWord($word, $line, $this->_theme::getFlagColor());
                 } elseif ($this->isVariable($word)) {
-                    $line = self::colorWord($word, $line, $this->theme->getVariableColor());
+                    $line = self::colorWord($word, $line, $this->_theme::getVariableColor());
                 } else {
                     //$line = self::colorWord($word, $line, $this->theme->getStringColor());
                 }
@@ -59,7 +69,7 @@ class HighlighterBase
             $i++;
         }
 
-        return '<span style="color:'.$this->theme->getStringColor().'">'.implode("<br />", $lines).'</span>';
+        return '<span style="color:'.$this->_theme::getStringColor().'">'.implode("<br />", $lines).'</span>';
     }
 
     /**
@@ -83,8 +93,8 @@ class HighlighterBase
 
     protected function setLineNumber(int $number)
     {
-        if (Highlighter::$_showLineNumbers) {
-            return '<span class="line-number" style="color: '.$this->theme->getDefaultColor().'">' . $number . '</span>';
+        if (Highlighter::$showLineNumbers) {
+            return '<span class="line-number" style="color: '.$this->_theme::getDefaultColor().'">' . $number . '</span>';
         } else {
             return '';
         }
@@ -136,13 +146,5 @@ class HighlighterBase
             return true;
         }
         return false;
-    }
-
-    /**
-     * @param Theme $theme
-     */
-    public function setTheme($theme)
-    {
-        $this->theme = $theme;
     }
 }
