@@ -19,6 +19,7 @@ require_once '../CodeHighlighter/src/autoload.php';
 require_once '../CodeHighlighter/src/CodeHighlighter/Themes/Theme.php';
 
 use CodeHighlighter\Highlighter;
+use CodeHighlighter\Theme\Theme;
 
 $text = '
 <h2>PHP</h2>

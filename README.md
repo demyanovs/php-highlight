@@ -28,6 +28,8 @@ require_once '/path/to/CodeHighlighter/src/autoload.php';
 require_once '../CodeHighlighter/src/CodeHighlighter/Themes/Theme.php';
 
 use CodeHighlighter\Highlighter;
+use CodeHighlighter\Theme\Theme;
+
 
 $highlighter = new Highlighter($text, 'drakula');
 // Configuration
