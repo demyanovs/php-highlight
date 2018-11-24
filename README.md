@@ -30,7 +30,6 @@ require_once '../CodeHighlighter/src/CodeHighlighter/Themes/Theme.php';
 use CodeHighlighter\Highlighter;
 use CodeHighlighter\Theme\Theme;
 
-
 $highlighter = new Highlighter($text, 'drakula');
 // Configuration
 //Highlighter::$showLineNumbers = true;
@@ -80,7 +79,7 @@ Highlighter::$showActionsPanel = true;
 ```
 
 ## Features
-- [x] set filename
 - [x] line numbers
 - [x] dark/light themes
+- [x] set filename
 - [ ] copy button
