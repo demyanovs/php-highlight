@@ -43,7 +43,7 @@ echo $highlighter->parse();
 Default - light theme
 Drakula - dark theme
 
-## Overwritten theme colors
+## Overwrite theme colors
 Library has its own themes, but all theme colors can be overwritten like this:
 ```php
 // Default
