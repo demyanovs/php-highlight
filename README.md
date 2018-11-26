@@ -34,7 +34,7 @@ $highlighter = new Highlighter($text, 'drakula');
 // Configuration
 //Highlighter::$showLineNumbers = true;
 //Highlighter::$showActionsPanel = true;
-//The theme colors are overwritten here (if necessary)
+//Theme colors are overwritten here (if necessary)
 //Theme::getTheme()::setBackgroundColor('#ccc');
 echo $highlighter->parse();
 ```
