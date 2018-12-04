@@ -96,7 +96,7 @@ class Highlighter {
             $text = str_replace('<br />', PHP_EOL, $text);
             $line_numbers = $this->setLineNumbers(count(explode(PHP_EOL, $text)));
         }
-        $wrapper .= '<div class="code-highlighter" style="background-color: '.$bgColor.'">'.$line_numbers.$text.'</div></div>';
+        $wrapper .= '<div class="code-highlighter" style="background-color: '.$bgColor.'">'.$line_numbers.'<div class="code-block">'.$text.'</div></div></div>';
         return $wrapper;
     }
 

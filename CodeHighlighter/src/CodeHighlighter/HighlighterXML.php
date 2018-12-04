@@ -28,6 +28,6 @@ class HighlighterXML extends HighlighterBase {
         $text = preg_replace("#([^\s]*?)\=(&quot;|')(.*)(&quot;|')#isU",
             "<span style=\"color: ".$this->_theme::getXMLAttrNameColor()."\">\\1</span>=<span style=\"color: ".$this->_theme::getXMLAttrValueColor()."\">\\2\\3\\4</span>",$text);
 
-        return '<span id="ttt" style="color: '.$this->_theme->getStringColor().'">'.$text.'</span>';
+        return '<span style="color: '.$this->_theme->getStringColor().'">'.$text.'</span>';
     }
 }
