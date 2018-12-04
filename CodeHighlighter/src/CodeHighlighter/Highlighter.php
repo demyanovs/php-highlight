@@ -90,7 +90,22 @@ class Highlighter {
                 </div>
             </div>';
         }
-        $wrapper .= '</div><div class="code-highlighter" style="background-color: '.$bgColor.'">'.$text.'</div>';
+
+        $line_numbers = '';
+        if (Highlighter::$showLineNumbers) {
+            $text = str_replace('<br />', PHP_EOL, $text);
+            $line_numbers = $this->setLineNumbers(count(explode(PHP_EOL, $text)));
+        }
+        $wrapper .= '<div class="code-highlighter" style="background-color: '.$bgColor.'">'.$line_numbers.$text.'</div></div>';
         return $wrapper;
+    }
+
+    private function setLineNumbers(int $count)
+    {
+        $line_numbers = '';
+        for ($i = 1; $i < $count+1; $i++) {
+            $line_numbers .= '<span class="line-number" style="color: '.$this->_theme::getDefaultColor().'">' . $i . '</span>';
+        }
+        return '<div class="line-numbers">'.$line_numbers.'</div>';
     }
 }

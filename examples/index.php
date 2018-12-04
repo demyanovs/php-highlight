@@ -102,9 +102,9 @@ fi
       Simple bread
    </title>
    <composition>
-      <ingredient amount="3" unit="стакан">Мука</ingredient>
-      <ingredient amount="0.25" unit="грамм">Дрожжи</ingredient>
-      <ingredient amount="1.5" unit="стакан">Тёплая вода</ingredient>
+      <ingredient amount="3" unit="стакан">Flour</ingredient>
+      <ingredient amount="0.25" unit="грамм">Yeast</ingredient>
+      <ingredient amount="1.5" unit="стакан">Warm water</ingredient>
    </composition>
    <instructions>
      <step>

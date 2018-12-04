@@ -48,7 +48,7 @@ class HighlighterBase
         foreach ($by_lines as $key => $line) {
             // Comment line
             if ($this->isCommentLine($line)) {
-                $lines[$key] = $this->setLineNumber($i).self::colorWord($line, $line, $this->_theme::getCommentColor());
+                $lines[$key] = self::colorWord($line, $line, $this->_theme::getCommentColor());
                 $i++;
                 continue;
             }
@@ -64,7 +64,7 @@ class HighlighterBase
                 } else {
                     //$line = self::colorWord($word, $line, $this->theme->getStringColor());
                 }
-                $lines[$key] = $this->setLineNumber($i).$line;
+                $lines[$key] = $line;
             }
             $i++;
         }
@@ -89,15 +89,6 @@ class HighlighterBase
     public static function setText(string $text)
     {
         self::$_text = $text;
-    }
-
-    protected function setLineNumber(int $number)
-    {
-        if (Highlighter::$showLineNumbers) {
-            return '<span class="line-number" style="color: '.$this->_theme::getDefaultColor().'">' . $number . '</span>';
-        } else {
-            return '';
-        }
     }
 
     /**

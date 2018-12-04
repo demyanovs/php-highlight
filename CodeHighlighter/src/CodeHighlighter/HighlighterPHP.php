@@ -20,22 +20,28 @@ class HighlighterPHP extends HighlighterBase {
      */
     public function highlight()
     {
-        //self::setColors();
-        $text = str_replace(['&lt;?php&nbsp;', '<code>', '</code>'], '', highlight_string("<?php ".self::$_text, true));
-        $lines = [];
-        $i = 1;
-        $by_lines = explode('<br />', $text);
-        foreach ($by_lines as $key => $line) {
-            if($i == 1) {
-                $lines[$key] = $line.$this->setLineNumber($i) ;
-            } else {
-                $lines[$key] = $this->setLineNumber($i) . $line;
-            }
-            $i++;
-        }
+        $text = str_replace(['&lt;?php&nbsp;', '<code>', '</code>'], '', highlight_string("<?php ".trim(self::$_text), true));
+        $text = str_replace(PHP_EOL, '<br />', $text);
 
+        $by_lines = explode('<br />', $text);
+        $lines = [];
+        $i = 0;
+        foreach ($by_lines as $key => $line) {
+            $i++;
+            if ($i == 1) {
+                continue;
+            }
+            // Join first two rows
+            if ($i == 2) {
+                $line = $by_lines[0].$by_lines[1];
+            }
+            // Join last two rows
+            if ($i == count($by_lines)-3) {
+                $lines[] = $by_lines[$i].$by_lines[count($by_lines)-2];
+                break;
+            }
+            $lines[$key] = $line;
+        }
         return implode("<br />", $lines);
     }
-
-
 }

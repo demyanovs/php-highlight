@@ -49,9 +49,13 @@
     cursor: pointer;
 }
 
-.code-highlighter .line-number {
+.code-highlighter .line-numbers {
     margin-right: 15px;
     color: #000;
     font-weight: normal;
     float: left;"
+}
+
+.code-highlighter .line-number {
+    display: block;
 }

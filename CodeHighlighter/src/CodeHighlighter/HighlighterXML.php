@@ -28,19 +28,6 @@ class HighlighterXML extends HighlighterBase {
         $text = preg_replace("#([^\s]*?)\=(&quot;|')(.*)(&quot;|')#isU",
             "<span style=\"color: ".$this->_theme::getXMLAttrNameColor()."\">\\1</span>=<span style=\"color: ".$this->_theme::getXMLAttrValueColor()."\">\\2\\3\\4</span>",$text);
 
-        if (Highlighter::$showLineNumbers) {
-            $by_lines = explode(PHP_EOL, $text);
-            $lines = [];
-            if ($by_lines) {
-                $i = 1;
-                foreach ($by_lines as $line) {
-                    $lines[] = self::setLineNumber($i).$line;
-                    $i++;
-                }
-                $text = implode(PHP_EOL, $lines);
-            }
-        }
-
-        return '<span style="color: '.$this->_theme->getStringColor().'">'.$text.'</span>';
+        return '<span id="ttt" style="color: '.$this->_theme->getStringColor().'">'.$text.'</span>';
     }
 }
