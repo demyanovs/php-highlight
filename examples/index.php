@@ -23,7 +23,7 @@ use CodeHighlighter\Theme\Theme;
 
 $text = '
 <h2>PHP</h2>
-<code data-lang="php" data-file-path="php-code-highlighter/examples/index.php">
+<pre data-lang="php" data-file-path="php-code-highlighter/examples/index.php">
 abstract class AbstractClass
 {
     // Our abstract method only needs to define the required arguments
@@ -50,10 +50,10 @@ class ConcreteClass extends AbstractClass
 $class = new ConcreteClass;
 echo $class->prefixName("Pacman"), "\n";
 echo $class->prefixName("Pacwoman"), "\n";
-</code>
+</pre>
 
 <h2>JavaScript</h2>
-<code data-lang="js" data-file-path="example.js">
+<pre data-lang="js" data-file-path="example.js">
 var searchHelp = {
     showImages: true,
     showDesc: true,
@@ -78,10 +78,10 @@ var searchHelp = {
         }
     }
 };
-</code>
+</pre>
 
 <h2>Bash</h2>
-<code data-lang="bash" data-file-path="example.sh">
+<pre data-lang="bash" data-file-path="example.sh">
 #!/bin/bash
 read -p "Enter number : " n
 if test $n -ge 0
@@ -90,11 +90,11 @@ then
 else
 	echo "$n number is negative number."
 fi
-</code>
+</pre>
 
 
 <h2>Xml</h2>
-<code data-lang="xml">
+<pre data-lang="xml">
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE recipe>
 <recipe name="bread" preptime="5min" cooktime="180min">
@@ -118,10 +118,10 @@ fi
      </step>
    </instructions>
 </recipe>
-</code>
+</pre>
 
 <h2>HTML</h2>
-<code data-lang="html">
+<pre data-lang="html">
 <!DOCTYPE html>
 <title>Title</title>
 
@@ -138,7 +138,7 @@ fi
     Mix all ingredients and knead thoroughly
   </div>
 </body>
-</code>
+</pre>
 ';
 
 $highlighter = new Highlighter($text, 'drakula');

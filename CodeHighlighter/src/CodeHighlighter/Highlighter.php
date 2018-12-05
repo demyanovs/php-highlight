@@ -36,8 +36,9 @@ class Highlighter {
      */
     public function parse()
     {
+        // <code (?=.*data-lang="(.*?)")|(?=.*data-file-path="(.*?)")|>(.*?)<\/code>
         return preg_replace_callback(
-            '/<code data-lang="(.*?)"( data-file-path="(.*?)">|>)(.*?)<\/code>/ism',
+            '/<pre data-lang="(.*?)"( data-file-path="(.*?)">|>)(.*?)<\/pre>/ism',
             function ($matches) {
                 $lang = $matches[1];
                 $filePath = $matches[3];
