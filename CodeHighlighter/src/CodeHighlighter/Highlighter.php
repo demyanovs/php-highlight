@@ -38,10 +38,10 @@ class Highlighter {
     {
         // <code (?=.*data-lang="(.*?)")|(?=.*data-file-path="(.*?)")|>(.*?)<\/code>
         return preg_replace_callback(
-            '/<pre data-lang="(.*?)"( data-file-path="(.*?)">|>)(.*?)<\/pre>/ism',
+            '/<pre data-file-path="(.*?)"( data-lang="(.*?)">|>)(.*?)<\/pre>/ism',
             function ($matches) {
-                $lang = $matches[1];
-                $filePath = $matches[3];
+                $lang = $matches[3];
+                $filePath = $matches[1];
                 $block = trim($matches[4]);
                 return $this->parseBlock($block, $lang, $filePath);
             },

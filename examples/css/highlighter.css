@@ -4,7 +4,7 @@
     border: 1px solid #ddd;
     border-radius: 3px;
     font-size: 12px;
-    /*font-family: "SFMono-Regular",Consolas,"Liberation Mono",Menlo,Courier,monospace;*/
+    font-family: "SFMono-Regular",Consolas,"Liberation Mono",Menlo,Courier,monospace;
     overflow-x: auto;
     overflow-y: hidden;
     white-space: pre-wrap;

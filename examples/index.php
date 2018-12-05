@@ -22,7 +22,7 @@ use CodeHighlighter\Theme\Theme;
 
 $text = '
 <h2>PHP</h2>
-<pre data-lang="php" data-file-path="php-code-highlighter/examples/index.php">
+<pre data-file-path="php-code-highlighter/examples/index.php" data-lang="php">
 abstract class AbstractClass
 {
     // Our abstract method only needs to define the required arguments
@@ -52,7 +52,7 @@ echo $class->prefixName("Pacwoman"), "\n";
 </pre>
 
 <h2>JavaScript</h2>
-<pre data-lang="js" data-file-path="example.js">
+<pre data-file-path="example.js" data-lang="js">
 var searchHelp = {
     showImages: true,
     showDesc: true,
@@ -80,7 +80,7 @@ var searchHelp = {
 </pre>
 
 <h2>Bash</h2>
-<pre data-lang="bash" data-file-path="example.sh">
+<pre data-file-path="example.sh" data-lang="bash">
 #!/bin/bash
 read -p "Enter number : " n
 if test $n -ge 0
@@ -93,7 +93,7 @@ fi
 
 
 <h2>Xml</h2>
-<pre data-lang="xml">
+<pre data-file-path="" data-lang="xml">
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE recipe>
 <recipe name="bread" preptime="5min" cooktime="180min">
@@ -120,7 +120,7 @@ fi
 </pre>
 
 <h2>HTML</h2>
-<pre data-lang="html">
+<pre data-file-path="" data-lang="html">
 <!DOCTYPE html>
 <title>Title</title>
 
