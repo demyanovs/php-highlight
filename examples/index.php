@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <title>CodeHighlighter example</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link type="text/css" rel="stylesheet"  href="css/highlighter.css">
     <script type="text/javascript" src="js/code_highlighter.js"></script>
 </head>

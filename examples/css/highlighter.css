@@ -4,7 +4,7 @@
     border: 1px solid #ddd;
     border-radius: 3px;
     font-size: 12px;
-    font-family: "SFMono-Regular",Consolas,"Liberation Mono",Menlo,Courier,monospace;
+    /*font-family: "SFMono-Regular",Consolas,"Liberation Mono",Menlo,Courier,monospace;*/
     overflow-x: auto;
     overflow-y: hidden;
     white-space: pre-wrap;
@@ -44,18 +44,20 @@
     background-color: #ddd;
 }
 
-.code-block-wrapper .fa.fa-copy {
-    font-size: 16px;
-    cursor: pointer;
-}
+
 
 .code-highlighter .line-numbers {
     margin-right: 15px;
     color: #000;
     font-weight: normal;
-    float: left;"
+    float: left;
 }
 
 .code-highlighter .line-number {
     display: block;
+}
+
+.code-block-wrapper .copy-text {
+    font-size: 16px;
+    cursor: pointer;
 }
