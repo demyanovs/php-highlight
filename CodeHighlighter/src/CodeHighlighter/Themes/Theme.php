@@ -23,9 +23,11 @@ class Theme
     {
         $this->_name = $theme;
         if (strtolower($theme) == "drakula") {
-            $this->DrakulaTheme();
+            $this->drakulaTheme();
+        } elseif (strtolower($theme) == "railscasts") {
+                $this->railscastsTheme();
         } else {
-            $this->DefaultTheme();
+            $this->defaultTheme();
         }
     }
 
@@ -37,7 +39,7 @@ class Theme
         return $this->_name;
     }
 
-    private function DefaultTheme()
+    private function defaultTheme()
     {
         // Default
         self::setDefaultColor('#000;');
@@ -63,7 +65,7 @@ class Theme
         self::setPHPStringColor('#DD0000;');
     }
 
-    private function DrakulaTheme()
+    private function drakulaTheme()
     {
         // Default
         self::setDefaultColor('#bababa;');
@@ -87,5 +89,31 @@ class Theme
         self::setPHPHtmlColor('#fbc201;');
         self::setPHPKeywordColor('#cb7832;');
         self::setPHPStringColor('#6a8759;');
+    }
+
+    private function railscastsTheme()
+    {
+        // Default
+        self::setDefaultColor('#bababa;');
+        self::setBackgroundColor('#232323');
+        self::setCommentColor('#bc9458;');
+        self::setKeywordColor('#cb7832;');
+        self::setVariableColor('#e6e1dc');
+        self::setStringColor('#a5c261;');
+        self::setHtmlColor('#fbc201;');
+        self::setFlagColor('#cb7832;');
+
+        // XML
+        self::setXMLTagColor('#e8bf6a;');
+        self::setXMLAttrNameColor('#6d9cbe;');
+        self::setXMLAttrValueColor('#519f50;');
+        self::setXMLInfoColor('#9b859d;');
+
+        // PHP
+        self::setPHPDefaultColor('#e6e1dc;');
+        self::setPHPCommentColor('#bc9458;');
+        self::setPHPHtmlColor('#fbc201;');
+        self::setPHPKeywordColor('#c26230;');
+        self::setPHPStringColor('#a5c261;');
     }
 }
