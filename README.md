@@ -33,7 +33,7 @@ use CodeHighlighter\Theme\Theme;
 $highlighter = new Highlighter($text, 'drakula');
 // Configuration
 //$highlighter->setShowLineNumbers(true);
-//$highlighter->setShowActionsPanel(true);
+//$highlighter->setShowActionPanel(true);
 echo $highlighter->parse();
 ```
 
@@ -46,7 +46,7 @@ echo $highlighter->parse();
 // Show line numbers
 $highlighter->setShowLineNumbers(true);
 // Show action panel (copy button)
-$highlighter->setShowActionsPanel(true);
+$highlighter->setShowActionPanel(true);
 ```
 
 You can set following attributes in \<pre> tag
