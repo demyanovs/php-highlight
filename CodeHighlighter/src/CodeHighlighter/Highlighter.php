@@ -11,7 +11,7 @@ class Highlighter {
      */
     protected static $_text;
 
-    private $_showActionsPanel = true;
+    private $_showActionPanel = true;
 
     private $_showLineNumbers = true;
 
@@ -89,7 +89,7 @@ class Highlighter {
     private function wrapCode(string $text, string $bgColor = '', string $filePath = ''): string
     {
         $wrapper = '<div class="code-block-wrapper">';
-        if ($this->_showActionsPanel) {
+        if ($this->_showActionPanel) {
             $wrapper .= '
             <div class="meta">
                 <div class="actions">
@@ -127,9 +127,9 @@ class Highlighter {
     /**
      * @param bool $status
      */
-    public function setShowActionsPanel(bool $status)
+    public function setShowActionPanel(bool $status)
     {
-        $this->_showActionsPanel = $status;
+        $this->_showActionPanel = $status;
     }
 
     /**

@@ -143,7 +143,7 @@ fi
 $highlighter = new Highlighter($text, 'drakula');
 // Configuration
 $highlighter->setShowLineNumbers(true);
-$highlighter->setShowActionsPanel(true);
+$highlighter->setShowActionPanel(true);
 echo $highlighter->parse();
 
 ?>
