@@ -22,7 +22,7 @@ use CodeHighlighter\Theme\Theme;
 
 $text = '
 <h2>PHP</h2>
-<pre data-file-path="php-code-highlighter/examples/index.php" data-lang="php">
+<pre data-file="php-code-highlighter/examples/index.php" data-lang="php">
 abstract class AbstractClass
 {
     // Our abstract method only needs to define the required arguments
@@ -93,7 +93,7 @@ fi
 
 
 <h2>Xml</h2>
-<pre data-file-path="" data-lang="xml">
+<pre data-lang="xml">
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE recipe>
 <recipe name="bread" preptime="5min" cooktime="180min">
@@ -101,9 +101,9 @@ fi
       Simple bread
    </title>
    <composition>
-      <ingredient amount="3" unit="стакан">Flour</ingredient>
-      <ingredient amount="0.25" unit="грамм">Yeast</ingredient>
-      <ingredient amount="1.5" unit="стакан">Warm water</ingredient>
+      <ingredient amount="3" unit="glass">Flour</ingredient>
+      <ingredient amount="0.25" unit="gram">Yeast</ingredient>
+      <ingredient amount="1.5" unit="glass">Warm water</ingredient>
    </composition>
    <instructions>
      <step>
@@ -120,7 +120,7 @@ fi
 </pre>
 
 <h2>HTML</h2>
-<pre data-file-path="" data-lang="html">
+<pre data-lang="html">
 <!DOCTYPE html>
 <title>Title</title>
 

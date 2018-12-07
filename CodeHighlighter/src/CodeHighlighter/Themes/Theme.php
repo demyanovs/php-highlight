@@ -10,8 +10,18 @@ class Theme
 
     private static $_instance;
 
-    private function __construct(string $theme = '')
+    /**
+     * @var string
+     */
+    private $_name = '';
+
+    /**
+     * Theme constructor.
+     * @param string $theme
+     */
+    public function __construct(string $theme = '')
     {
+        $this->_name = $theme;
         if (strtolower($theme) == "drakula") {
             $this->DrakulaTheme();
         } else {
@@ -19,12 +29,12 @@ class Theme
         }
     }
 
-    public static function getTheme(string $theme = '')
+    /**
+     * @return string
+     */
+    public function getName()
     {
-        if (self::$_instance) {
-            return self::$_instance;
-        }
-        return self::$_instance = new self($theme);
+        return $this->_name;
     }
 
     private function DefaultTheme()

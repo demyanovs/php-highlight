@@ -28,7 +28,7 @@ class Highlighter {
     public function __construct(string $text, string $theme = '')
     {
         self::$_text = $text;
-        $this->_theme = Theme::getTheme($theme);
+        $this->_theme = new Theme($theme);
     }
 
     /**
@@ -36,14 +36,19 @@ class Highlighter {
      */
     public function parse()
     {
-        // <code (?=.*data-lang="(.*?)")|(?=.*data-file-path="(.*?)")|>(.*?)<\/code>
         return preg_replace_callback(
-            '/<pre data-file-path="(.*?)"( data-lang="(.*?)">|>)(.*?)<\/pre>/ism',
+            '/<pre([^>]+)>(.*?)<\/pre>/ism',
             function ($matches) {
-                $lang = $matches[3];
-                $filePath = $matches[1];
-                $block = trim($matches[4]);
-                return $this->parseBlock($block, $lang, $filePath);
+               preg_match_all('/data-(\S+)=["\']?((?:.(?!["\']?\s+(?:\S+)=|[>"\']))+.)["\']?/ism', $matches[1], $attributes);
+                $data = [];
+                foreach ($attributes[1] as $key => $attr) {
+                    $data[$attr] = $attributes[2][$key];
+                }
+                $block = isset($matches[2]) ? trim($matches[2]) : '';
+                $lang = isset($data['lang']) ? $data['lang'] : '';
+                $file = isset($data['file']) ? $data['file'] : '';
+                $theme = isset($data['theme']) ? $data['theme'] : '';
+                return $this->parseBlock($block, $lang, $file, $theme);
             },
             self::$_text);
     }
@@ -54,7 +59,7 @@ class Highlighter {
      * @param string $filePath
      * @return mixed|string
      */
-    private function parseBlock(string $block, string $lang, string $filePath = '')
+    private function parseBlock(string $block, string $lang, string $filePath = '', $theme = '')
     {
         if ($lang == "php") {
             $highlighter = HighlighterPHP::getInstance($block);
@@ -65,7 +70,12 @@ class Highlighter {
         } else {
             $highlighter = HighlighterPHP::getInstance($block);
         }
-        $highlighter->setTheme($this->_theme);
+        if ($theme) {
+            $highlighter->setTheme(new Theme($theme));
+        } else {
+            $highlighter->setTheme(new Theme($this->_theme->getName()));
+        }
+
         $block = $highlighter->highlight();
         return $this->wrapCode($block, $this->_theme::getBackgroundColor(), $filePath);
     }
@@ -101,6 +111,10 @@ class Highlighter {
         return $wrapper;
     }
 
+    /**
+     * @param int $count
+     * @return string
+     */
     private function setLineNumbers(int $count)
     {
         $line_numbers = '';

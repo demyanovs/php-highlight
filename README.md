@@ -83,4 +83,4 @@ Highlighter::$showActionsPanel = true;
 - [x] dark/light themes
 - [x] set filename
 - [x] copy button
-- [ ] overwrite theme in code block
+- [x] overwrite theme in code block
