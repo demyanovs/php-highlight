@@ -38,8 +38,9 @@ echo $highlighter->parse();
 ```
 
 ## Themes
-* Default - light theme
+* default - light theme
 * Drakula - dark theme
+* Railscasts - dark theme
 
 ## Configuration
 ```php

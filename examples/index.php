@@ -140,7 +140,7 @@ fi
 </pre>
 ';
 
-$highlighter = new Highlighter($text, 'drakula');
+$highlighter = new Highlighter($text, 'railscasts');
 // Configuration
 $highlighter->setShowLineNumbers(true);
 $highlighter->setShowActionPanel(true);
