@@ -61,3 +61,4 @@ You can set following attributes in \<pre> tag
 - [x] set filename
 - [x] copy button
 - [x] overwrite theme in code block
+- [ ] overwrite line numbers and action panel settings in code block
