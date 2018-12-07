@@ -32,50 +32,21 @@ use CodeHighlighter\Theme\Theme;
 
 $highlighter = new Highlighter($text, 'drakula');
 // Configuration
-//Highlighter::$showLineNumbers = true;
-//Highlighter::$showActionsPanel = true;
-//Theme colors are overwritten here (if necessary)
-//Theme::getTheme()::setBackgroundColor('#ccc');
+//$highlighter->setShowLineNumbers(true);
+//$highlighter->setShowActionsPanel(true);
 echo $highlighter->parse();
 ```
 
 ## Themes
-Default - light theme<br/>
-Drakula - dark theme
-
-## Overwrite theme colors
-Library has its own themes, but all theme colors can be overwritten like this:
-```php
-// Default
-Theme::getTheme()::setDefaultColor('#000;');
-Theme::getTheme()::setBackgroundColor('#f8f8f8');
-Theme::getTheme()::setCommentColor('#7f7f7f;');
-Theme::getTheme()::setKeywordColor('#cb7832;');
-Theme::getTheme()::setVariableColor('#cb7832');
-Theme::getTheme()::setStringColor('#000;');
-Theme::getTheme()::setHtmlColor('#fbc201;');
-Theme::getTheme()::setFlagColor('#cb7832;');
-
-// XML
-Theme::getTheme()::setXMLTagColor('#008000;');
-Theme::getTheme()::setXMLAttrNameColor('#7D9029;');
-Theme::getTheme()::setXMLAttrValueColor('#BA2121;');
-Theme::getTheme()::setXMLInfoColor('#BC7A00;');
-
-// PHP
-Theme::getTheme()::setPHPDefaultColor('#0000BB;');
-Theme::getTheme()::setPHPCommentColor('#FF8000;');
-Theme::getTheme()::setPHPHtmlColor('#fbc201;');
-Theme::getTheme()::setPHPKeywordColor('#007700;');
-Theme::getTheme()::setPHPStringColor('#DD0000;');
-```
+* Default - light theme
+* Drakula - dark theme
 
 ## Configuration
 ```php
 // Show line numbers
-Highlighter::$showLineNumbers = true;
+$highlighter->setShowLineNumbers(true);
 // Show action panel (copy button)
-Highlighter::$showActionsPanel = true;
+$highlighter->setShowActionsPanel(true);
 ```
 
 You can set following attributes in \<pre> tag

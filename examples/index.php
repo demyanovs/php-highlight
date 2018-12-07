@@ -142,10 +142,8 @@ fi
 
 $highlighter = new Highlighter($text, 'drakula');
 // Configuration
-//Highlighter::$showLineNumbers = true;
-//Highlighter::$showActionsPanel = true;
-//Theme settings are overwritten here
-//Theme::getTheme()::setBackgroundColor('#ccc');
+$highlighter->setShowLineNumbers(true);
+$highlighter->setShowActionsPanel(true);
 echo $highlighter->parse();
 
 ?>

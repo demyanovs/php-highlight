@@ -11,9 +11,9 @@ class Highlighter {
      */
     protected static $_text;
 
-    public static $showActionsPanel = true;
+    private $_showActionsPanel = true;
 
-    public static $showLineNumbers = true;
+    private $_showLineNumbers = true;
 
     /**
      * @var Theme
@@ -89,7 +89,7 @@ class Highlighter {
     private function wrapCode(string $text, string $bgColor = '', string $filePath = ''): string
     {
         $wrapper = '<div class="code-block-wrapper">';
-        if (self::$showActionsPanel) {
+        if ($this->_showActionsPanel) {
             $wrapper .= '
             <div class="meta">
                 <div class="actions">
@@ -103,7 +103,7 @@ class Highlighter {
         }
 
         $line_numbers = '';
-        if (Highlighter::$showLineNumbers) {
+        if ($this->_showLineNumbers) {
             $text = str_replace('<br />', PHP_EOL, $text);
             $line_numbers = $this->setLineNumbers(count(explode(PHP_EOL, $text)));
         }
@@ -122,5 +122,21 @@ class Highlighter {
             $line_numbers .= '<span class="line-number" style="color: '.$this->_theme::getDefaultColor().'">' . $i . '</span>';
         }
         return '<div class="line-numbers">'.$line_numbers.'</div>';
+    }
+
+    /**
+     * @param bool $status
+     */
+    public function setShowActionsPanel(bool $status)
+    {
+        $this->_showActionsPanel = $status;
+    }
+
+    /**
+     * @param bool $status
+     */
+    public function setShowLineNumbers(bool $status)
+    {
+        $this->_showLineNumbers = $status;
     }
 }
