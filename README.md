@@ -78,6 +78,12 @@ Highlighter::$showLineNumbers = true;
 Highlighter::$showActionsPanel = true;
 ```
 
+You can set following attributes in <pre> tag
+<pre data-lang="php" data-file="example.php" data-theme="drakuala">
+* lang - a language of the text. This affects how the parser will highlight the syntax.
+* file - show file name in action panel.
+* theme - allows to overwrite the global theme.
+
 ## Features
 - [x] line numbers
 - [x] dark/light themes
