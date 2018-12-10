@@ -27,8 +27,8 @@ See examples here [index.php](../master/examples/index.php)
 require_once '/path/to/PHPHighlight/src/autoload.php';
 require_once '../PHPHighlight/src/PHPHighlight/Themes/Theme.php';
 
-use CodeHighlighter\Highlighter;
-use CodeHighlighter\Theme\Theme;
+use PHPHighlight\Highlighter;
+use PHPHighlight\Theme\Theme;
 
 $highlighter = new Highlighter($text, 'drakula');
 // Configuration

@@ -93,7 +93,7 @@ class Highlighter {
             $wrapper .= '
             <div class="meta">
                 <div class="actions">
-                    <span class="js-copy-clipboard copy-text" onclick="codeHighlighter.copyClipboard(this)">copy</span>
+                    <span class="js-copy-clipboard copy-text" onclick="PHPHighlight.copyClipboard(this)">copy</span>
                     <span class="meta-divider"></span>
                 </div>
                 <div class="info">

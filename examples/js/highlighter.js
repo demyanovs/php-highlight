@@ -1,4 +1,4 @@
-const codeHighlighter = {
+const PHPHighlight = {
     copyClipboard: function (elem) {
         let parent = elem.parentNode.parentNode.parentNode,
             text_to_copy = parent.querySelector('.code-block').textContent;
