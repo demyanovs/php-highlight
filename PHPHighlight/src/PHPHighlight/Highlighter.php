@@ -1,8 +1,8 @@
 <?php
 
-namespace CodeHighlighter;
+namespace PHPHighlight;
 
-use CodeHighlighter\Theme\Theme;
+use PHPHighlight\Theme\Theme;
 
 class Highlighter {
 

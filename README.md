@@ -1,6 +1,6 @@
-# CodeHighlighter
+# PHPHighlight
 
-CodeHighlighter is a PHP library for highlighting syntax that can be easily configured and extended.
+PHPHighlight is a PHP library for highlighting syntax that can be easily configured and extended.
 
 ## Language syntax support
 * PHP
@@ -15,8 +15,8 @@ Supports style customization.
 
 ## Installation
 ```php
-// require the CodeHighlighter autoloader
-require_once '/path/to/CodeHighlighter/src/autoload.php';
+// require the PHPHighlight autoloader
+require_once '/path/to/PHPHighlight/src/autoload.php';
 ```
 
 ## Basic Usage
@@ -24,8 +24,8 @@ See examples here [index.php](../master/examples/index.php)
 ```php
 <?php
 
-require_once '/path/to/CodeHighlighter/src/autoload.php';
-require_once '../CodeHighlighter/src/CodeHighlighter/Themes/Theme.php';
+require_once '/path/to/PHPHighlight/src/autoload.php';
+require_once '../PHPHighlight/src/PHPHighlight/Themes/Theme.php';
 
 use CodeHighlighter\Highlighter;
 use CodeHighlighter\Theme\Theme;

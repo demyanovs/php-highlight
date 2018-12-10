@@ -1,6 +1,6 @@
 <?php
 
-namespace CodeHighlighter\Traits;
+namespace PHPHighlight\Traits;
 
 trait SetOptions
 {

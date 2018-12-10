@@ -2,9 +2,9 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>CodeHighlighter example</title>
+    <title>PHPHighlight example</title>
     <link type="text/css" rel="stylesheet"  href="css/highlighter.css">
-    <script type="text/javascript" src="js/code_highlighter.js"></script>
+    <script type="text/javascript" src="js/highlighter.js"></script>
 </head>
 <body>
 
@@ -14,15 +14,15 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-require_once '../CodeHighlighter/src/autoload.php';
-require_once '../CodeHighlighter/src/CodeHighlighter/Themes/Theme.php';
+require_once '../PHPHighlight/src/autoload.php';
+require_once '../PHPHighlight/src/PHPHighlight/Themes/Theme.php';
 
-use CodeHighlighter\Highlighter;
-use CodeHighlighter\Theme\Theme;
+use PHPHighlight\Highlighter;
+use PHPHighlight\Theme\Theme;
 
 $text = '
 <h2>PHP</h2>
-<pre data-file="php-code-highlighter/examples/index.php" data-lang="php">
+<pre data-file="php-highlight/examples/index.php" data-lang="php">
 abstract class AbstractClass
 {
     // Our abstract method only needs to define the required arguments

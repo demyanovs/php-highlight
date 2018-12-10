@@ -1,8 +1,8 @@
 <?php
 
-namespace CodeHighlighter\Theme;
+namespace PHPHighlight\Theme;
 
-use CodeHighlighter\Traits\SetOptions;
+use PHPHighlight\Traits\SetOptions;
 
 class Theme
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace CodeHighlighter;
+namespace PHPHighlight;
 
 class HighlighterBash extends HighlighterBase {
 
