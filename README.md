@@ -63,3 +63,5 @@ You can set following attributes in \<pre> tag
 - [x] copy button
 - [x] overwrite theme in code block
 - [ ] overwrite line numbers and action panel settings in code block
+- [ ] action panel: open code in a new window
+- [ ] action panel: about
