@@ -14,7 +14,7 @@ The library parses the text, finds the tag \<pre>, read attributes (data-lang, d
 Supports style customization.
 
 ## Installation
-`$ composer require nmred/kafka-php`
+`$ composer require demyanovs/php-highlight`
 
 ## Basic Usage
 See examples here [index.php](../master/examples/index.php)
