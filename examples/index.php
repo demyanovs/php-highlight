@@ -14,12 +14,6 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-require_once '../PHPHighlight/src/autoload.php';
-require_once '../PHPHighlight/src/PHPHighlight/Themes/Theme.php';
-
-use PHPHighlight\Highlighter;
-use PHPHighlight\Theme\Theme;
-
 $text = '
 <h2>PHP</h2>
 <pre data-file="php-highlight/examples/index.php" data-lang="php">
@@ -140,9 +134,13 @@ fi
 </pre>
 ';
 
+require_once '../vendor/autoload.php';
+
+use Demyanovs\PHPHighlight\Highlighter;
+
 $highlighter = new Highlighter($text, 'railscasts');
 // Configuration
-$highlighter->setShowLineNumbers(true);
+$highlighter->setShowLineNumbers(false);
 $highlighter->setShowActionPanel(true);
 echo $highlighter->parse();
 

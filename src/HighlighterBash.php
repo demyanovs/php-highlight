@@ -1,6 +1,6 @@
 <?php
 
-namespace PHPHighlight;
+namespace Demyanovs\PHPHighlight;
 
 class HighlighterBash extends HighlighterBase {
 
@@ -9,7 +9,10 @@ class HighlighterBash extends HighlighterBase {
     /**
      * @var array
      */
-    protected $_keywords = ['wget', 'tar', 'cd', 'rsync', 'cp', 'echo', 'if', 'else', 'then', 'fi', 'while', 'echo', '=', '==', '===', 'exit', 'for', 'done', '<', '>', 'read'];
+    protected $_keywords = [
+        'wget', 'tar', 'cd', 'rsync', 'cp', 'echo', 'if', 'else', 'then', 'fi', 'while', 'echo', '=', '==', '===',
+        'exit', 'for', 'done', '<', '>', 'read', 'require', 'composer'
+    ];
 
     public static function getInstance(string $text)
     {

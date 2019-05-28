@@ -1,8 +1,8 @@
 <?php
 
-namespace PHPHighlight\Theme;
+namespace Demyanovs\PHPHighlight\Themes;
 
-use PHPHighlight\Traits\SetOptions;
+use Demyanovs\PHPHighlight\Traits\SetOptions;
 
 class Theme
 {

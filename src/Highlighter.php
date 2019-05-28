@@ -1,8 +1,8 @@
 <?php
 
-namespace PHPHighlight;
+namespace Demyanovs\PHPHighlight;
 
-use PHPHighlight\Theme\Theme;
+use Demyanovs\PHPHighlight\Themes\Theme;
 
 class Highlighter {
 
@@ -13,7 +13,7 @@ class Highlighter {
 
     private $_showActionPanel = true;
 
-    private $_showLineNumbers = true;
+    private $_showLineNumbers = false;
 
     /**
      * @var Theme
@@ -103,8 +103,8 @@ class Highlighter {
         }
 
         $line_numbers = '';
+        $text = str_replace('<br />', PHP_EOL, $text);
         if ($this->_showLineNumbers) {
-            $text = str_replace('<br />', PHP_EOL, $text);
             $line_numbers = $this->setLineNumbers(count(explode(PHP_EOL, $text)));
         }
         $wrapper .= '<div class="code-highlighter" style="background-color: '.$bgColor.'">'.$line_numbers.'<div class="code-block">'.$text.'</div></div></div>';

@@ -1,0 +1,26 @@
+{
+    "name": "demyanovs/php-highlight",
+    "description": "A PHP library for highlighting code syntax.",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Demyanov Vyacheslav",
+            "email": "demyanovs@gmail.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Demyanovs\\PHPHighlight\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Demyanovs\\PHPHighlight\\Tests\\": "tests"
+        }
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^8.1"
+    }
+}

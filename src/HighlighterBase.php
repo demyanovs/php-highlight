@@ -1,8 +1,8 @@
 <?php
 
-namespace PHPHighlight;
+namespace Demyanovs\PHPHighlight;
 
-use PHPHighlight\Theme\Theme;
+use Demyanovs\PHPHighlight\Themes\Theme;
 
 class HighlighterBase
 {

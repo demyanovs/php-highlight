@@ -1,6 +1,6 @@
 <?php
 
-namespace PHPHighlight;
+namespace Demyanovs\PHPHighlight;
 
 class HighlighterXML extends HighlighterBase {
 

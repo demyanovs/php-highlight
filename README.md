@@ -14,26 +14,21 @@ The library parses the text, finds the tag \<pre>, read attributes (data-lang, d
 Supports style customization.
 
 ## Installation
-```php
-// require the PHPHighlight autoloader
-require_once '/path/to/PHPHighlight/src/autoload.php';
-```
+`$ composer require nmred/kafka-php`
 
 ## Basic Usage
 See examples here [index.php](../master/examples/index.php)
 ```php
 <?php
 
-require_once '/path/to/PHPHighlight/src/autoload.php';
-require_once '../PHPHighlight/src/PHPHighlight/Themes/Theme.php';
+require_once '../vendor/autoload.php';
 
-use PHPHighlight\Highlighter;
-use PHPHighlight\Theme\Theme;
+use Demyanovs\PHPHighlight\Highlighter;
 
-$highlighter = new Highlighter($text, 'drakula');
+$highlighter = new Highlighter($text, 'railscasts');
 // Configuration
-//$highlighter->setShowLineNumbers(true);
-//$highlighter->setShowActionPanel(true);
+$highlighter->setShowLineNumbers(false);
+$highlighter->setShowActionPanel(true);
 echo $highlighter->parse();
 ```
 
