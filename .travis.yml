@@ -9,3 +9,10 @@ before_script:
 
 script:
   - vendor/bin/phpunit
+
+jobs:
+
+  include:
+    - stage: Code Quality
+      script:
+        - ./vendor/bin/phpcs
