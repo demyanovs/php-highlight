@@ -2,21 +2,16 @@
 
 PHPHighlight is a PHP library for highlighting syntax that can be easily configured and extended.
 
-## Language syntax support
-* PHP
-* JavaScript
-* XML
-* HTML
-* Bash
-
-## How it works
 The library parses the text, finds the tag \<pre>, read attributes (data-lang, data-file, data-theme), and for this reason decides how to highlight the syntax of this block. 
 Supports style customization.
 
 ## Installation
-`$ composer require demyanovs/php-highlight`
+You can install package via composer
+```bash
+$ composer require demyanovs/php-highlight
+```
 
-## Basic Usage
+## Usage
 See examples here [index.php](../master/examples/index.php)
 ```php
 <?php
@@ -31,13 +26,19 @@ $highlighter->setShowLineNumbers(false);
 $highlighter->setShowActionPanel(true);
 echo $highlighter->parse();
 ```
+### Language syntax support
+* PHP
+* JavaScript
+* XML
+* HTML
+* Bash
 
-## Themes
+### Themes
 * default - light theme
-* Drakula - dark theme
-* Railscasts - dark theme
+* drakula - dark theme
+* railscasts - dark theme
 
-## Configuration
+### Customization
 ```php
 // Show line numbers
 $highlighter->setShowLineNumbers(true);
@@ -51,12 +52,10 @@ You can set following attributes in \<pre> tag
 * file - show file name in action panel.
 * theme - allows to overwrite the global theme.
 
-## Features
-- [x] line numbers
-- [x] dark/light themes
-- [x] set filename
-- [x] copy button
-- [x] overwrite theme in code block
-- [ ] overwrite line numbers and action panel settings in code block
-- [ ] action panel: open code in a new window
-- [ ] action panel: about
+## Contributing
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+
+Please make sure to update tests as appropriate.
+
+## License
+[MIT](./LICENSE.md)
