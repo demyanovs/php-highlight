@@ -1,23 +1,26 @@
 <?xml version="1.0"?>
 <ruleset>
-    <arg name="basepath" value="." />
-    <arg name="extensions" value="php" />
-    <arg name="parallel" value="80" />
-    <arg name="colors" />
-    <arg name="cache" value=".php_cs.cache" />
-    <arg value="np" />
+    <arg name="basepath" value="."/>
+    <arg name="extensions" value="php"/>
+    <arg name="parallel" value="80"/>
+    <arg name="cache" value=".phpcs-cache"/>
+    <arg name="colors"/>
 
+    <!-- Ignore warnings, show progress of the run and show sniff names -->
+    <arg value="nps"/>
+
+    <!-- Directories to be checked -->
     <file>examples</file>
     <file>src</file>
     <file>tests</file>
-    
-    <rule ref="Doctrine" />
 
-    <rule ref="PSR1.Methods.CamelCapsMethodName.NotCamelCaps" >
-        <exclude-pattern>*/tests/*</exclude-pattern>
+    <!-- Include full Doctrine Coding Standard -->
+    <rule ref="Doctrine">
+        <exclude name="SlevomatCodingStandard.TypeHints.DeclareStrictTypes.DeclareStrictTypesMissing"/>
+        <exclude name="SlevomatCodingStandard.Namespaces.ReferenceUsedNamesOnly.ReferenceViaFallbackGlobalName"/>
+        <exclude name="SlevomatCodingStandard.Variables.UselessVariable.UselessVariable"/>
     </rule>
-    <rule ref="PSR1.Classes.ClassDeclaration.MissingNamespace" />
 
-    <rule ref="Squiz.Classes.ClassFileName.NoMatch" />
-
+    <exclude-pattern>examples/</exclude-pattern>
+    <exclude-pattern>src/Traits</exclude-pattern>
 </ruleset>

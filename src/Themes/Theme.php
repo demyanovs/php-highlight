@@ -8,38 +8,27 @@ class Theme
 {
     use SetOptions;
 
-    private static $_instance;
-
-    /**
-     * @var string
-     */
+    /** @var string */
     private $_name = '';
 
-    /**
-     * Theme constructor.
-     * @param string $theme
-     */
     public function __construct(string $theme = '')
     {
         $this->_name = $theme;
-        if (strtolower($theme) == "drakula") {
+        if (strtolower($theme) === 'drakula') {
             $this->drakulaTheme();
-        } elseif (strtolower($theme) == "railscasts") {
+        } elseif (strtolower($theme) === 'railscasts') {
                 $this->railscastsTheme();
         } else {
             $this->defaultTheme();
         }
     }
 
-    /**
-     * @return string
-     */
-    public function getName()
+    public function getName() : string
     {
         return $this->_name;
     }
 
-    private function defaultTheme()
+    private function defaultTheme() : void
     {
         // Default
         self::setDefaultColor('#000;');
@@ -65,7 +54,7 @@ class Theme
         self::setPHPStringColor('#DD0000;');
     }
 
-    private function drakulaTheme()
+    private function drakulaTheme() : void
     {
         // Default
         self::setDefaultColor('#bababa;');
@@ -91,7 +80,7 @@ class Theme
         self::setPHPStringColor('#6a8759;');
     }
 
-    private function railscastsTheme()
+    private function railscastsTheme() : void
     {
         // Default
         self::setDefaultColor('#bababa;');

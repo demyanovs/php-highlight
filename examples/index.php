@@ -140,7 +140,7 @@ use Demyanovs\PHPHighlight\Highlighter;
 
 $highlighter = new Highlighter($text, 'railscasts');
 // Configuration
-$highlighter->setShowLineNumbers(false);
+$highlighter->setShowLineNumbers(true);
 $highlighter->setShowActionPanel(true);
 echo $highlighter->parse();
 
