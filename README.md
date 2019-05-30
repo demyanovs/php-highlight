@@ -5,6 +5,10 @@ PHPHighlight is a PHP library for highlighting syntax that can be easily configu
 The library parses the text, finds the tag \<pre>, read attributes (data-lang, data-file, data-theme), and for this reason decides how to highlight the syntax of this block. 
 Supports style customization.
 
+Here is an example of styling:
+
+<img width="682" height="399" src="https://codingwar.com/sites/default/files/images/phphighlight.png">
+
 ## Installation
 You can install package via composer
 ```bash
@@ -42,7 +46,7 @@ echo $highlighter->parse();
 ```php
 // Show line numbers
 $highlighter->setShowLineNumbers(true);
-// Show action panel (copy button)
+// Show action panel
 $highlighter->setShowActionPanel(true);
 ```
 
