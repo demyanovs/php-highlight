@@ -10,9 +10,11 @@
     <file>examples</file>
     <file>src</file>
     <file>tests</file>
+    
+    <rule ref="Doctrine" />
 
     <rule ref="PSR1.Methods.CamelCapsMethodName.NotCamelCaps" >
-        <exclude-pattern>*/tests\/Base\/StreamStub/*</exclude-pattern>
+        <exclude-pattern>*/tests/*</exclude-pattern>
     </rule>
     <rule ref="PSR1.Classes.ClassDeclaration.MissingNamespace" />
 
