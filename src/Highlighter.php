@@ -2,6 +2,7 @@
 
 namespace Demyanovs\PHPHighlight;
 
+use Demyanovs\PHPHighlight\Themes\Styles;
 use Demyanovs\PHPHighlight\Themes\Theme;
 
 class Highlighter
@@ -75,12 +76,12 @@ class Highlighter
         $wrapper = '<div class="code-block-wrapper">';
         if ($this->_showActionPanel) {
             $wrapper .= '
-            <div class="meta">
-                <div class="actions">
-                    <span class="js-copy-clipboard copy-text" onclick="PHPHighlight.copyClipboard(this)">copy</span>
-                    <span class="meta-divider"></span>
+            <div class="meta" style="' . Styles::getCodeBlockWrapperMetaStyle() . '">
+                <div class="actions" style="' . Styles::getCodeBlockWrapperActionsStyle() . '">
+                    <span class="js-copy-clipboard copy-text" style="' . Styles::getCodeBlockWrapperCopyTextStyle() . '" onclick="PHPHighlight.copyClipboard(this)">copy</span>
+                    <span class="meta-divider" style="' . Styles::getCodeBlockWrapperMetaDividerStyle() . '"></span>
                 </div>
-                <div class="info">
+                <div class="info" style="' . Styles::getCodeBlockWrapperInfoStyle() . '">
                     <span>' . $filePath . '</span>
                 </div>
             </div>';
@@ -91,7 +92,7 @@ class Highlighter
         if ($this->_showLineNumbers) {
             $line_numbers = $this->setLineNumbers(count(explode(PHP_EOL, $text)));
         }
-        $wrapper .= '<div class="code-highlighter" style="background-color: ' . $bgColor . '">' . $line_numbers . '<div class="code-block">' . $text . '</div></div></div>';
+        $wrapper .= '<div class="code-highlighter" style="' . Styles::getCodeHighlighterStyle() . '; background-color: ' . $bgColor . '">' . $line_numbers . '<div class="code-block">' . $text . '</div></div></div>';
 
         return $wrapper;
     }
@@ -100,10 +101,10 @@ class Highlighter
     {
         $line_numbers = '';
         for ($i = 1; $i < $count+1; $i++) {
-            $line_numbers .= '<span class="line-number" style="color: ' . $this->_theme::getDefaultColor() . '">' . $i . '</span>';
+            $line_numbers .= '<span class="line-number" style="' . Styles::getLineNumberStyle() . '; color: ' . $this->_theme::getDefaultColor() . '">' . $i . '</span>';
         }
 
-        return '<div class="line-numbers">' . $line_numbers . '</div>';
+        return '<div class="line-numbers" style="' . Styles::getLineNumbersStyle() . '">' . $line_numbers . '</div>';
     }
 
     public function setShowActionPanel(bool $status) : void
