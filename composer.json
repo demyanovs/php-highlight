@@ -3,6 +3,12 @@
     "description": "A PHP library for highlighting code syntax.",
     "type": "library",
     "license": "MIT",
+    "keywords": [
+        "php-highlight",
+        "codehighlighter",
+        "codehighlighting",
+        "syntax-highlighting"        
+    ],    
     "authors": [
         {
             "name": "Demyanov Vyacheslav",
