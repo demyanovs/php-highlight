@@ -7,7 +7,7 @@ Supports style customization.
 
 Here is an example of styling:
 
-<img width="757" height="309" src="https://codingwar.com/sites/default/files/images/phphighlight.png">
+<img width="757" height="309" src="https://codingwar.com/sites/default/files/images/phphighlight2.png">
 
 ## Installation
 You can install package via composer
