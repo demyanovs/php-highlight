@@ -9,6 +9,7 @@ class HighlighterPHP extends HighlighterBase
 
     public static function getInstance(string $text) : self
     {
+        $text = str_replace('&lt;?php', '<?php', $text);
         self::setText($text);
         if (self::$_instance) {
             return self::$_instance;
@@ -37,9 +38,9 @@ class HighlighterPHP extends HighlighterBase
             if ($i === 2) {
                 $line = $by_lines[0] . $by_lines[1];
             }
-            // Join last two rows
-            if ($i === count($by_lines)-3) {
-                $lines[] = $by_lines[$i] . $by_lines[count($by_lines)-2];
+            // Join last row
+            if ($i === count($by_lines)-1) {
+                $lines[] = $by_lines[$i] . $by_lines[count($by_lines)-1];
                 break;
             }
             $lines[$key] = $line;

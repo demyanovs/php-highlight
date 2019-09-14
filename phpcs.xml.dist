@@ -19,6 +19,9 @@
         <exclude name="SlevomatCodingStandard.TypeHints.DeclareStrictTypes.DeclareStrictTypesMissing"/>
         <exclude name="SlevomatCodingStandard.Namespaces.ReferenceUsedNamesOnly.ReferenceViaFallbackGlobalName"/>
         <exclude name="SlevomatCodingStandard.Variables.UselessVariable.UselessVariable"/>
+        <exclude name="SlevomatCodingStandard.Namespaces.ReferenceUsedNamesOnly.ReferenceViaFullyQualifiedName"/>
+        <exclude name="SlevomatCodingStandard.Classes.UnusedPrivateElements.UnusedMethod"/>
+        <exclude name="Generic.Formatting.SpaceAfterNot.Incorrect"/>
     </rule>
 
     <exclude-pattern>examples/</exclude-pattern>

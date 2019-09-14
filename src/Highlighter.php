@@ -21,7 +21,7 @@ class Highlighter
 
     public function __construct(string $text, string $theme = '')
     {
-        self::$_text  = $text;
+        self::$_text  = str_replace('<?php', '&lt;?php', $text);
         $this->_theme = new Theme($theme);
     }
 
@@ -42,6 +42,10 @@ class Highlighter
                 $lang  = $data['lang'] ?? '';
                 $file  = $data['file'] ?? '';
                 $theme = $data['theme'] ?? '';
+
+                if (!$lang) {
+                    return str_replace('<?php', '&lt;?php', $block);
+                }
 
                 return $this->parseBlock($block, $lang, $file, $theme);
             },
@@ -99,6 +103,11 @@ class Highlighter
 
     private function setLineNumbers(int $count) : string
     {
+        // Don't show line number if there is only one line
+        if ($count === 1) {
+            return false;
+        }
+
         $line_numbers = '';
         for ($i = 1; $i < $count+1; $i++) {
             $line_numbers .= '<span class="line-number" style="' . Styles::getLineNumberStyle() . '; color: ' . $this->_theme::getDefaultColor() . '">' . $i . '</span>';

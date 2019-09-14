@@ -17,18 +17,27 @@ error_reporting(E_ALL);
 $text = '
 <h2>PHP</h2>
 <pre data-file="php-highlight/examples/index.php" data-lang="php">
+&lt;?php
 abstract class AbstractClass
 {
-    // Our abstract method only needs to define the required arguments
-    abstract protected function prefixName($name);
-
+    /**
+     * Our abstract method only needs to define the required arguments
+     * @param string $name
+     * @return string
+     */
+    abstract protected function prefixName(string $name) : string;
 }
 
 class ConcreteClass extends AbstractClass
 {
-
-    // Our child class may define optional arguments not in the parent\'s signature
-    public function prefixName($name, $separator = ".") {
+    /**
+     * Our child class may define optional arguments not in the parent\'s signature
+     * @param string $name
+     * @param string $separator
+     * @return string
+     */
+    public function prefixName(string $name, string $separator = ".") : string 
+    {
         if ($name == "Pacman") {
             $prefix = "Mr";
         } elseif ($name == "Pacwoman") {
@@ -47,30 +56,19 @@ echo $class->prefixName("Pacwoman"), "\n";
 
 <h2>JavaScript</h2>
 <pre data-file-path="example.js" data-lang="js">
-var searchHelp = {
-    showImages: true,
-    showDesc: true,
-    minChars: 3,
-    cmd: \'show_search_help\',
-    keysDownBlock: [13, 37, 38, 39, 40],
+// Arrow functions let us omit the `function` keyword. Here `long_example`
+// points to an anonymous function value.
+const long_example = (input1, input2) => {
+    console.log("Hello, World!");
+    const output = input1 + input2;
 
-    showSearchHelp: function (obj) {
-        var self = this,
-            searchText = $(obj).val(),
-            searchName = $(obj).attr(\'name\'),
-            autocompleteContainerId = \'#\' + $(obj).data(\'container-id\');
-
-        if ( $.inArray($(obj).which, this.keysDownBlock) === -1 ) {
-            if (searchText.length < self.minChars) {
-                return;
-            }
-            else {
-                // Hide help
-                $(autocompleteContainerId + \' ul\').css(\'display\', \'none\');
-            }
-        }
-    }
+    return output;
 };
+
+const short_example = input => input + 5;
+
+long_example(2, 3); // Prints "Hello, World!" and returns 5.
+short_example(2);   // Returns 7.
 </pre>
 
 <h2>Bash</h2>
@@ -85,7 +83,32 @@ else
 fi
 </pre>
 
+<h2>Go</h2>
+<pre data-lang="go">
+package main
 
+import "fmt"
+
+func f(from string) {
+    for i := 0; i < 3; i++ {
+        fmt.Println(from, ":", i)
+    }
+}
+
+func main() {
+
+    f("direct")
+
+    go f("goroutine")
+
+    go func(msg string) {
+        fmt.Println(msg)
+    }("going")
+
+    fmt.Scanln()
+    fmt.Println("done")
+}
+</pre>
 <h2>Xml</h2>
 <pre data-lang="xml">
 <?xml version="1.0" encoding="utf-8"?>

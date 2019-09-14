@@ -26,21 +26,25 @@ use Demyanovs\PHPHighlight\Highlighter;
 
 $highlighter = new Highlighter($text, 'railscasts');
 // Configuration
-$highlighter->setShowLineNumbers(false);
+$highlighter->setShowLineNumbers(true);
 $highlighter->setShowActionPanel(true);
 echo $highlighter->parse();
 ```
 ### Language syntax support
 * PHP
 * JavaScript
-* XML
-* HTML
+* XML/HTML
 * Bash
+* Go
+* and others
 
 ### Themes
-* default - light theme
-* drakula - dark theme
-* railscasts - dark theme
+* default
+* darkula
+* railscasts
+* obsidian
+* far
+* vs2015
 
 ### Customization
 ```php
