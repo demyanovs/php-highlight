@@ -5,9 +5,10 @@
     "license": "MIT",
     "keywords": [
         "php-highlight",
+        "php_highlight",
         "codehighlighter",
         "codehighlighting",
-        "syntax-highlighting"        
+        "syntax-highlighting",        
     ],    
     "authors": [
         {
