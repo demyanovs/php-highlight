@@ -45,6 +45,7 @@ echo $highlighter->parse();
 * obsidian
 * far
 * vs2015
+* c64
 
 ### Customization
 ```php

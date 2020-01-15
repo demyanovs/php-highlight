@@ -5,29 +5,29 @@ namespace Demyanovs\PHPHighlight\Traits;
 trait SetOptions
 {
 
-    private static $_defaultColor;
+    private static $_defaultColor = '';
 
-    private static $_backgroundColor;
+    private static $_backgroundColor = '';
 
-    private static $_commentColor;
+    private static $_commentColor = '';
 
-    private static $_keywordColor;
+    private static $_keywordColor = '';
 
-    private static $_variableColor;
+    private static $_variableColor = '';
 
-    private static $_stringColor;
+    private static $_stringColor = '';
 
-    private static $_htmlColor;
+    private static $_htmlColor = '';
 
-    private static $_flagColor;
+    private static $_flagColor = '';
 
-    private static $_XMLTagColor;
+    private static $_XMLTagColor = '';
 
-    private static $_XMLAttrNameColor;
+    private static $_XMLAttrNameColor = '';
 
-    private static $_XMLAttrValueColor;
+    private static $_XMLAttrValueColor = '';
 
-    private static $_XMLInfoColor;
+    private static $_XMLInfoColor = '';
 
     /**
      * @param string $color

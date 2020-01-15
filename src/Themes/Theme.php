@@ -183,4 +183,30 @@ class Theme
         self::setPHPKeywordColor('#569CD6; font-weight: bold;');
         self::setPHPStringColor('#D69D85;');
     }
+
+    private function c64Theme() : void
+    {
+        // Default
+        self::setDefaultColor('#70A4B2;');
+        self::setBackgroundColor('#352879');
+        self::setCommentColor('#6C5EB5;');
+        self::setKeywordColor('#FFFFFF;');
+        self::setVariableColor('#70A4B2');
+        self::setStringColor('#B8C76F;');
+        self::setHtmlColor('#70A4B2;');
+        self::setFlagColor('#588D43;');
+
+        // XML
+        self::setXMLTagColor('#70A4B2; font-weight;');
+        self::setXMLAttrNameColor('#9A6759;');
+        self::setXMLAttrValueColor('#9AD284;');
+        self::setXMLInfoColor('#6C6C6C;');
+
+        // PHP
+        self::setPHPDefaultColor('#FFFFFF;');
+        self::setPHPCommentColor('#9AD284;');
+        self::setPHPHtmlColor('#70A4B2;');
+        self::setPHPKeywordColor('#70A4B2; font-weight: bold;');
+        self::setPHPStringColor('#B8C76F;');
+    }
 }
