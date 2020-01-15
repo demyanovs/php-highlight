@@ -13,6 +13,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [1.1.0] - 2019-09-14
 - Fixed htmlspecialchars
 - Fixed showing line number if there is only one line
-- Add themes: obsidian, far, vs2015
+- Added themes: obsidian, far, vs2015
 - Changed examples
 - Other code changes and small fixes
+
+## [1.1.1] - 2020-01-15
+- Added c64 theme
