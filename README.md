@@ -9,6 +9,9 @@ Here is an example of styling:
 
 <img width="757" height="309" src="https://codingwar.com/sites/default/files/images/phphighlight2.png">
 
+## Requirements
+PHP 7.1+
+
 ## Installation
 You can install package via composer
 ```bash
