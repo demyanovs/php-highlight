@@ -5,7 +5,7 @@ PHPHighlight is a PHP library for highlighting syntax that can be easily configu
 The library parses the text, finds the tag \<pre>, read attributes (data-lang, data-file, data-theme), and for this reason decides how to highlight the syntax of this block. 
 Supports style customization.
 
-Here is an example of styling:
+Here are examples of styling:
 
 <img width="757" height="309" src="https://codingwar.com/sites/default/files/images/phphighlight2.png">
 
@@ -23,9 +23,48 @@ See examples here [index.php](../master/examples/index.php)
 ```php
 <?php
 
-require_once '../vendor/autoload.php';
+require_once 'vendor/autoload.php';
 
 use Demyanovs\PHPHighlight\Highlighter;
+
+$text = '
+<pre data-file="php-highlight/examples/index.php" data-lang="php">
+abstract class AbstractClass
+{
+    /**
+     * Our abstract method only needs to define the required arguments
+     * @param string $name
+     * @return string
+     */
+    abstract protected function prefixName(string $name): string;
+}
+
+class ConcreteClass extends AbstractClass
+{
+    /**
+     * Our child class may define optional arguments not in the parent\'s signature
+     * @param string $name
+     * @param string $separator
+     * @return string
+     */
+    public function prefixName(string $name, string $separator = ".") : string 
+    {
+        if ($name == "Pacman") {
+            $prefix = "Mr";
+        } elseif ($name == "Pacwoman") {
+            $prefix = "Mrs";
+        } else {
+            $prefix = "";
+        }
+        return "{$prefix}{$separator} {$name}";
+    }
+}
+
+$class = new ConcreteClass;
+echo $class->prefixName("Pacman"), "\n";
+echo $class->prefixName("Pacwoman"), "\n";
+</pre>
+';
 
 $highlighter = new Highlighter($text, 'railscasts');
 // Configuration
