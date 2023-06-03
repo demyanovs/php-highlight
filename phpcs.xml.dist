@@ -21,7 +21,16 @@
         <exclude name="SlevomatCodingStandard.Variables.UselessVariable.UselessVariable"/>
         <exclude name="SlevomatCodingStandard.Namespaces.ReferenceUsedNamesOnly.ReferenceViaFullyQualifiedName"/>
         <exclude name="SlevomatCodingStandard.Classes.UnusedPrivateElements.UnusedMethod"/>
+        <exclude name="SlevomatCodingStandard.Commenting.RequireOneLineDocComment.MultiLineDocComment"/>
+        <exclude name="SlevomatCodingStandard.ControlStructures.EarlyExit.EarlyExitNotUsed"/>
+        <exclude name="SlevomatCodingStandard.PHP.RequireExplicitAssertion.RequiredExplicitAssertion"/>
+        <exclude name="SlevomatCodingStandard.TypeHints.UnionTypeHintFormat.DisallowedShortNullable"/>
+        <exclude name="SlevomatCodingStandard.TypeHints.ParameterTypeHintSpacing.MultipleSpacesBetweenTypeHintAndParameter"/>
+        <exclude name="SlevomatCodingStandard.Classes.PropertyDeclaration.MultipleSpacesBetweenTypeHintAndProperty"/>
         <exclude name="Generic.Formatting.SpaceAfterNot.Incorrect"/>
+        <exclude name="Generic.Formatting.MultipleStatementAlignment.NotSame"/>
+        <exclude name="Squiz.Functions.FunctionDeclarationArgumentSpacing.SpacingAfterHint"/>
+        <exclude name="Squiz.Functions.MultiLineFunctionDeclaration.NewlineBeforeOpenBrace"/>
     </rule>
 
     <exclude-pattern>examples/</exclude-pattern>

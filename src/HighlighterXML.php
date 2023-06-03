@@ -4,44 +4,55 @@ namespace Demyanovs\PHPHighlight;
 
 class HighlighterXML extends HighlighterBase
 {
-    /** @var self*/
-    private static $_instance;
+    private static ?self $instance = null;
 
-    public static function getInstance(string $text) : self
+    public static function getInstance(string $text): self
     {
-        self::setText($text);
-        if (self::$_instance) {
-            return self::$_instance;
+        if (self::$instance) {
+            self::$instance->setText($text);
+
+            return self::$instance;
         }
 
-        return self::$_instance = new self($text);
+        return self::$instance = new self($text);
     }
 
-    /**
-     * @return mixed|string
-     */
-    public function highlight()
+    public function highlight(): string
     {
-        $text = htmlspecialchars(self::$_text);
+        $text = htmlspecialchars($this->text);
         // Brackets
         $text = preg_replace(
             '#&lt;([/]*?)(.*)([\s]*?)&gt;#sU',
-            '<span style="color: ' . $this->_theme::getXMLTagColor() . '">&lt;\\1\\2\\3&gt;</span>',
-            $text
+            sprintf(
+                '<span style="color: %s">&lt;\\1\\2\\3&gt;</span>',
+                $this->theme->XMLColorSchemaDto->getXMLTagColor(),
+            ),
+            $text,
         );
         // Xml version
         $text = preg_replace(
             '#&lt;([\?])(.*)([\?])&gt;#sU',
-            '<span style="color: ' . $this->_theme::getXMLInfoColor() . '">&lt;\\1\\2\\3&gt;</span>',
-            $text
+            sprintf(
+                '<span style="color: %s">&lt;\\1\\2\\3&gt;</span>',
+                $this->theme->XMLColorSchemaDto->getXMLInfoColor(),
+            ),
+            $text,
         );
         // Attributes
         $text = preg_replace(
             "#([^\s]*?)\=(&quot;|')(.*)(&quot;|')#isU",
-            '<span style="color: ' . $this->_theme::getXMLAttrNameColor() . '">\\1</span>=<span style="color: ' . $this->_theme::getXMLAttrValueColor() . '">\\2\\3\\4</span>',
-            $text
+            sprintf(
+                '<span style="color: %s">\\1</span>=<span style="color: %s">\\2\\3\\4</span>',
+                $this->theme->XMLColorSchemaDto->getXMLAttrNameColor(),
+                $this->theme->XMLColorSchemaDto->getXMLAttrValueColor(),
+            ),
+            $text,
         );
 
-        return '<span style="color: ' . $this->_theme->getStringColor() . '">' . $text . '</span>';
+        return sprintf(
+            '<span style="color: %s">%s</span>',
+            $this->theme->defaultColorSchema->getStringColor(),
+            $text,
+        );
     }
 }
