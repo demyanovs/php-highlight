@@ -1,16 +1,16 @@
 # PHPHighlight
 
-PHPHighlight is a PHP library for highlighting syntax that can be easily configured and extended.
+PHPHighlight is a PHP syntax highlighting library that can be easily customized and extended.
 
-The library parses the text, finds the tag \<pre>, read attributes (data-lang, data-file, data-theme), and for this reason decides how to highlight the syntax of this block. 
-Supports style customization.
+## How it works
+The library parses the text, finds the \<pre> tag, reads the attributes (data-lang, data-file, data-theme) and highlights the syntax of the code block.
 
-Here are examples of styling:
+Supports style customization. Here are examples of styling:
 
-<img width="757" height="309" src="https://demyanov.dev/sites/default/files/images/phphighlight2.png">
+<img width="757" height="309" src="https://demyanov.dev/sites/default/files/images/phphighlight2.png" alt="styling example">
 
 ## Requirements
-PHP 7.1+
+PHP 8.1+
 
 ## Installation
 You can install package via composer
@@ -19,7 +19,7 @@ $ composer require demyanovs/php-highlight
 ```
 
 ## Usage
-See examples here [index.php](../master/examples/index.php)
+See full example here [index.php](../master/examples/index.php)
 ```php
 <?php
 
@@ -29,12 +29,11 @@ use Demyanovs\PHPHighlight\Highlighter;
 
 $text = '
 <pre data-file="php-highlight/examples/index.php" data-lang="php">
+&lt;?php
 abstract class AbstractClass
 {
     /**
      * Our abstract method only needs to define the required arguments
-     * @param string $name
-     * @return string
      */
     abstract protected function prefixName(string $name): string;
 }
@@ -43,20 +42,19 @@ class ConcreteClass extends AbstractClass
 {
     /**
      * Our child class may define optional arguments not in the parent\'s signature
-     * @param string $name
-     * @param string $separator
-     * @return string
      */
-    public function prefixName(string $name, string $separator = ".") : string 
+    public function prefixName(string $name): string
     {
-        if ($name == "Pacman") {
-            $prefix = "Mr";
-        } elseif ($name == "Pacwoman") {
-            $prefix = "Mrs";
+        $prefix = "";
+        if ($name === "Pacman") {
+            $prefix = "Mr.";
+        } elseif ($name === "Pacwoman") {
+            $prefix = "Mrs.";
         } else {
-            $prefix = "";
+            
         }
-        return "{$prefix}{$separator} {$name}";
+        
+        return $prefix . " " . $name;
     }
 }
 
@@ -66,13 +64,44 @@ echo $class->prefixName("Pacwoman"), "\n";
 </pre>
 ';
 
-$highlighter = new Highlighter($text, 'railscasts');
+$highlighter = new Highlighter($text, ObsidianTheme::TITLE);
 // Configuration
-$highlighter->setShowLineNumbers(true);
-$highlighter->setShowActionPanel(true);
+$highlighter->showLineNumbers(true);
+$highlighter->showActionPanel(true);
 echo $highlighter->parse();
 ```
-### Language syntax support
+
+### Customization
+```php
+$highlighter->showLineNumbers(true);
+$highlighter->showActionPanel(true);
+```
+
+You can set following attributes in \<pre> tag
+\<pre data-lang="php" data-file="example.php" data-theme="drakuala">
+* lang - a language of the text. This affects how the parser will highlight the syntax.
+* file - show file name in action panel.
+* theme - allows to overwrite the global theme.
+
+### How to create a custom theme
+To create a custom theme you need to create an instance of Demyanovs\PHPHighlight\Themes\Theme class
+and pass it to Highlighter as a third argument:
+```php
+$defaultColorSchemaDto = new DefaultColorSchemaDto(...);
+$PHPColorSchemaDto = new PHPColorSchemaDto(...);
+$XMLColorSchemaDto = new XMLColorSchemaDto(...);
+
+$myTheme = new Theme(
+    'myThemeTitle',
+    $defaultColorSchemaDto,
+    $PHPColorSchemaDto,
+    $XMLColorSchemaDto
+);
+
+$highlighter = new Highlighter($text, 'myThemeTitle', [$myTheme]);
+```
+
+### Supports language syntax
 * PHP
 * JavaScript
 * XML/HTML
@@ -88,20 +117,6 @@ echo $highlighter->parse();
 * far
 * vs2015
 * c64
-
-### Customization
-```php
-// Show line numbers
-$highlighter->setShowLineNumbers(true);
-// Show action panel
-$highlighter->setShowActionPanel(true);
-```
-
-You can set following attributes in \<pre> tag
-\<pre data-lang="php" data-file="example.php" data-theme="drakuala">
-* lang - a language of the text. This affects how the parser will highlight the syntax.
-* file - show file name in action panel.
-* theme - allows to overwrite the global theme.
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.

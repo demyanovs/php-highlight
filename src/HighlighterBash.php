@@ -4,19 +4,43 @@ namespace Demyanovs\PHPHighlight;
 
 class HighlighterBash extends HighlighterBase
 {
-    /** @var self */
-    private static $_instance;
+    private static ?self $instance = null;
 
     /** @var string[] */
-    protected $_keywords = ['wget', 'tar', 'cd', 'rsync', 'cp', 'echo', 'if', 'else', 'then', 'fi', 'while', 'echo', '=', '==', '===', 'exit', 'for', 'done', '<', '>', 'read', 'require', 'composer'];
+    protected array $keywords = [
+        'wget',
+        'tar',
+        'cd',
+        'rsync',
+        'cp',
+        'echo',
+        'if',
+        'else',
+        'then',
+        'fi',
+        'while',
+        'echo',
+        '=',
+        '==',
+        '===',
+        'exit',
+        'for',
+        'done',
+        '<',
+        '>',
+        'read',
+        'require',
+        'composer',
+    ];
 
-    public static function getInstance(string $text) : self
+    public static function getInstance(string $text): self
     {
-        self::setText($text);
-        if (self::$_instance) {
-            return self::$_instance;
+        if (self::$instance) {
+            self::$instance->setText($text);
+
+            return self::$instance;
         }
 
-        return self::$_instance = new self($text);
+        return self::$instance = new self($text);
     }
 }

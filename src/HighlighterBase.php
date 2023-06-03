@@ -6,93 +6,91 @@ use Demyanovs\PHPHighlight\Themes\Theme;
 
 class HighlighterBase
 {
-    /** @var string */
-    protected static $_text;
-
     /** @var string[] */
-    protected $_keywords = [];
+    protected array $keywords = [];
 
-    /** @var Theme */
-    protected $_theme;
+    protected Theme $theme;
 
-    public function __construct(string $text)
+    public function __construct(protected string $text)
     {
-        self::$_text = $text;
     }
 
-    public function setTheme(Theme $theme) : void
+    public function setTheme(Theme $theme): void
     {
-        $this->_theme = $theme;
+        $this->theme = $theme;
     }
 
-    /**
-     * @return mixed
-     */
-    public function highlight()
+    public function highlight(): string
     {
-        $by_lines = explode(PHP_EOL, self::$_text);
+        $byLines = explode(PHP_EOL, $this->text);
         $lines    = [];
-        $i        = 1;
-        foreach ($by_lines as $key => $line) {
+        foreach ($byLines as $key => $line) {
             // Comment line
             if ($this->isCommentLine($line)) {
-                $lines[$key] = self::colorWord($line, $line, $this->_theme::getCommentColor());
-                $i++;
+                $lines[$key] = self::colorWord($line, $line, $this->theme->defaultColorSchema->getCommentColor());
                 continue;
             }
+
             $words = array_unique(explode(' ', $line));
             foreach ($words as $word) {
                 $word = trim($word);
                 if ($this->isKeyword($word)) {
-                    $line = self::colorWord($word, $line, $this->_theme::getKeywordColor());
+                    $line = self::colorWord($word, $line, $this->theme->defaultColorSchema->getKeywordColor());
                 } elseif ($this->isFlag($word)) {
-                    $line = self::colorWord($word, $line, $this->_theme::getFlagColor());
+                    $line = self::colorWord($word, $line, $this->theme->defaultColorSchema->getFlagColor());
                 } elseif ($this->isVariable($word)) {
-                    $line = self::colorWord($word, $line, $this->_theme::getVariableColor());
+                    $line = self::colorWord($word, $line, $this->theme->defaultColorSchema->getVariableColor());
                 }
-                /*
-                else {
-                    $line = self::colorWord($word, $line, $this->theme->getStringColor());
-                }
-                */
+
+//                else {
+//                    $line = self::colorWord($word, $line, $this->theme->defaultColorSchema->getStringColor());
+//                }
+
                 $lines[$key] = $line;
             }
-            $i++;
         }
 
-        return '<span style="color:' . $this->_theme::getStringColor() . '">' . implode('<br />', $lines) . '</span>';
+        return sprintf(
+            '<span style="color:%s">%s</span>',
+            $this->theme->defaultColorSchema->getStringColor(),
+            implode('<br />', $lines),
+        );
     }
 
     /**
-     * @return mixed
+     * @return array|string|string[]
      */
-    public static function colorWord(string $word, string $line, string $color)
+    public static function colorWord(string $word, string $line, string $color): array|string
     {
-        return str_replace($word, '<span style="color:' . $color . '">' . $word . '</span>', $line);
+        return str_replace(
+            $word,
+            sprintf('<span style="color: %s">%s</span>', $color, $word),
+            $line,
+        );
     }
 
-    public static function setText(string $text) : void
+    public function setText(string $text): void
     {
-        self::$_text = $text;
+        $this->text = $text;
     }
 
-    protected function isVariable(string $word) : bool
+    protected function isVariable(string $word): bool
     {
-        return substr($word, 0, 1) === '$' ?? false;
+        return str_starts_with($word, '$') ?? false;
     }
 
-    protected function isFlag(string $word) : bool
+    protected function isFlag(string $word): bool
     {
-        return substr($word, 0, 1) === '-' ?? false;
+        return str_starts_with($word, '-') ?? false;
     }
 
-    protected function isKeyword(string $word) : bool
+    protected function isKeyword(string $word): bool
     {
-        return in_array($word, $this->_keywords) ?? false;
+        return in_array($word, $this->keywords) ?? false;
     }
 
-    protected function isCommentLine(string $word) : bool
+    protected function isCommentLine(string $word): bool
     {
-        return substr($word, 0, 1) === '#' ?? false;
+        return str_starts_with($word, '#') ?? false;
     }
 }

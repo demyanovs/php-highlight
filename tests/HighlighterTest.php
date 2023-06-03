@@ -9,7 +9,7 @@ class HighlighterTest extends TestCase
     /**
      * @test
      */
-    public function itParse() : void
+    public function itParse(): void
     {
         $this->assertTrue(true);
     }
