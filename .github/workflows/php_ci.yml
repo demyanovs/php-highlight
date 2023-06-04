@@ -1,0 +1,70 @@
+name: PHP CI
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+
+permissions:
+  contents: read
+
+jobs:
+
+  unit_tests:
+    name: Unit tests
+    runs-on: 'ubuntu-latest'
+    strategy:
+      matrix:
+        php-versions: ['8.1', '8.2']        
+      fail-fast: false
+
+    steps:
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+            php-version: ${{ matrix.php-versions }}
+            tools: composer:v2
+      
+      - name: Check PHP Version
+        run: php -v
+        
+      - uses: actions/checkout@v3
+      
+      - name: Validate composer.json and composer.lock
+        run: composer validate --strict
+
+      - name: Run composer install
+        run: composer install -n --prefer-dist
+
+      - name: Run PHPUnit
+        run: XDEBUG_MODE=coverage composer test
+        
+  code_style:
+    name: Code style
+    runs-on: 'ubuntu-latest'
+    strategy:
+      matrix:
+        php-versions: ['8.1', '8.2']        
+      fail-fast: false
+
+    steps:
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+            php-version: ${{ matrix.php-versions }}
+            tools: composer:v2
+      
+      - name: Check PHP Version
+        run: php -v
+        
+      - uses: actions/checkout@v3
+      
+      - name: Validate composer.json and composer.lock
+        run: composer validate --strict
+
+      - name: Run composer install
+        run: composer install -n --prefer-dist
+
+      - name: Run linter
+        run: composer linter
