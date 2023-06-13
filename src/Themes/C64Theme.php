@@ -22,19 +22,19 @@ class C64Theme extends Theme
             '#588D43;',
         );
 
-        $XMLColorSchemaDto = new XMLColorSchemaDto(
-            '#70A4B2; font-weight;',
-            '#9A6759;',
-            '#9AD284;',
-            '#6C6C6C;',
-        );
-
         $PHPColorSchemaDto = new PHPColorSchemaDto(
             '#FFFFFF;',
             '#9AD284;',
             '#70A4B2;',
             '#70A4B2; font-weight: bold;',
             '#B8C76F;',
+        );
+
+        $XMLColorSchemaDto = new XMLColorSchemaDto(
+            '#70A4B2; font-weight;',
+            '#9A6759;',
+            '#9AD284;',
+            '#6C6C6C;',
         );
 
         parent::__construct(self::TITLE, $defaultColorSchemaDto, $PHPColorSchemaDto, $XMLColorSchemaDto);

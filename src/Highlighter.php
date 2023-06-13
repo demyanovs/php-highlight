@@ -15,6 +15,7 @@ class Highlighter
     private bool $showActionPanel = true;
 
     private Theme $theme;
+
     private ThemePool $themePool;
 
     /**

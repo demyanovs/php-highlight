@@ -22,19 +22,19 @@ class ObsidianTheme extends Theme
             '#ec7600;',
         );
 
-        $XMLColorSchemaDto = new XMLColorSchemaDto(
-            '#8cbbad; font-weight: bold;',
-            '#6d9cbe;',
-            '#ec7600;',
-            '#557182;',
-        );
-
         $PHPColorSchemaDto = new PHPColorSchemaDto(
             '#e0e2e4;',
             '#818e96;',
             '#fbc201;',
             '#93c763; font-weight: bold;',
             '#ec7600;',
+        );
+
+        $XMLColorSchemaDto = new XMLColorSchemaDto(
+            '#8cbbad; font-weight: bold;',
+            '#6d9cbe;',
+            '#ec7600;',
+            '#557182;',
         );
 
         parent::__construct(self::TITLE, $defaultColorSchemaDto, $PHPColorSchemaDto, $XMLColorSchemaDto);

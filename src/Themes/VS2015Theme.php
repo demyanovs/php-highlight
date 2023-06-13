@@ -22,19 +22,19 @@ class VS2015Theme extends Theme
             '#F0F0F0;',
         );
 
-        $XMLColorSchemaDto = new XMLColorSchemaDto(
-            '#569CD6; font-weight;',
-            '#9CDCFE;',
-            '#D69D85;',
-            '#9B9B9B;',
-        );
-
         $PHPColorSchemaDto = new PHPColorSchemaDto(
             '#DCDCDC;',
             '#57A64A;',
             '#fbc201;',
             '#569CD6; font-weight: bold;',
             '#D69D85;',
+        );
+
+        $XMLColorSchemaDto = new XMLColorSchemaDto(
+            '#569CD6; font-weight;',
+            '#9CDCFE;',
+            '#D69D85;',
+            '#9B9B9B;',
         );
 
         parent::__construct(self::TITLE, $defaultColorSchemaDto, $PHPColorSchemaDto, $XMLColorSchemaDto);
