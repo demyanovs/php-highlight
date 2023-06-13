@@ -25,7 +25,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Updated syntaxes to PHP 8.1
 - Updated examples
 - 
-## [2.0.1] - 2023-06-03
+## [2.1.0] - 2023-06-13
 - Set PHP minimum version in composer
 - Throws UnknownThemeException
 - Added tests
