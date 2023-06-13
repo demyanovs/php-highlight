@@ -22,19 +22,19 @@ class RailscastsTheme extends Theme
             '#cb7832;',
         );
 
-        $XMLColorSchemaDto = new XMLColorSchemaDto(
-            '#e8bf6a;',
-            '#6d9cbe;',
-            '#519f50;',
-            '#9b859d;',
-        );
-
         $PHPColorSchemaDto = new PHPColorSchemaDto(
             '#e6e1dc;',
             '#bc9458;',
             '#fbc201;',
             '#c26230; font-weight: bold;',
             '#a5c261;',
+        );
+
+        $XMLColorSchemaDto = new XMLColorSchemaDto(
+            '#e8bf6a;',
+            '#6d9cbe;',
+            '#519f50;',
+            '#9b859d;',
         );
 
         parent::__construct(self::TITLE, $defaultColorSchemaDto, $PHPColorSchemaDto, $XMLColorSchemaDto);

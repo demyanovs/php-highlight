@@ -22,19 +22,19 @@ class DarkulaTheme extends Theme
             '#cb7832;',
         );
 
-        $XMLColorSchemaDto = new XMLColorSchemaDto(
-            '#cb7832;',
-            '#bababa;',
-            '#6896ba;',
-            '#7f7f7f;',
-        );
-
         $PHPColorSchemaDto = new PHPColorSchemaDto(
             '#bababa;',
             '#7f7f7f; font-weight: bold;',
             '#fbc201;',
             '#cb7832;',
             '#6a8759;',
+        );
+
+        $XMLColorSchemaDto = new XMLColorSchemaDto(
+            '#cb7832;',
+            '#bababa;',
+            '#6896ba;',
+            '#7f7f7f;',
         );
 
         parent::__construct(self::TITLE, $defaultColorSchemaDto, $PHPColorSchemaDto, $XMLColorSchemaDto);

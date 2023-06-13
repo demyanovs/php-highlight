@@ -26,6 +26,7 @@ See full example here [index.php](../master/examples/index.php)
 require_once 'vendor/autoload.php';
 
 use Demyanovs\PHPHighlight\Highlighter;
+use Demyanovs\PHPHighlight\Themes\ObsidianTheme;
 
 $text = '
 <pre data-file="php-highlight/examples/index.php" data-lang="php">

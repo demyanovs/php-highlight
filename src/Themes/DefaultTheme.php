@@ -22,19 +22,19 @@ class DefaultTheme extends Theme
             '#cb7832;',
         );
 
-        $XMLColorSchemaDto = new XMLColorSchemaDto(
-            '#008000;',
-            '#7D9029;',
-            '#BA2121;',
-            '#BC7A00;',
-        );
-
         $PHPColorSchemaDto = new PHPColorSchemaDto(
             '#0000BB;',
             '#FF8000;',
             '#fbc201;',
             '#007700; font-weight: bold;',
             '#DD0000;',
+        );
+
+        $XMLColorSchemaDto = new XMLColorSchemaDto(
+            '#008000;',
+            '#7D9029;',
+            '#BA2121;',
+            '#BC7A00;',
         );
 
         parent::__construct(self::TITLE, $defaultColorSchemaDto, $PHPColorSchemaDto, $XMLColorSchemaDto);

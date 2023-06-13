@@ -54,8 +54,3 @@
 .code-highlighter .line-number {
     display: block;
 }
-
-.code-block-wrapper .copy-text {
-    font-size: 16px;
-    cursor: pointer;
-}

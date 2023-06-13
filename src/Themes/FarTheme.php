@@ -22,19 +22,19 @@ class FarTheme extends Theme
             '#ff0;',
         );
 
-        $XMLColorSchemaDto = new XMLColorSchemaDto(
-            '#fff; font-weight: bold;',
-            '#0ff;',
-            '#ff0;',
-            '#008080;',
-        );
-
         $PHPColorSchemaDto = new PHPColorSchemaDto(
             '#0ff;',
             '#888;',
             '#fbc201;',
             '#fff; font-weight: bold;',
             '#ff0;',
+        );
+
+        $XMLColorSchemaDto = new XMLColorSchemaDto(
+            '#fff; font-weight: bold;',
+            '#0ff;',
+            '#ff0;',
+            '#008080;',
         );
 
         parent::__construct(self::TITLE, $defaultColorSchemaDto, $PHPColorSchemaDto, $XMLColorSchemaDto);

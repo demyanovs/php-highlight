@@ -2,6 +2,8 @@
 
 namespace Demyanovs\PHPHighlight\Themes;
 
+use Demyanovs\PHPHighlight\Themes\Exception\UnknownThemeException;
+
 class ThemePool
 {
     private const THEMES_CLASSES = [
@@ -28,6 +30,9 @@ class ThemePool
         $this->addCustomThemes($customThemes);
     }
 
+    /**
+     * @throws UnknownThemeException
+     */
     public function getByTitle(string $title): Theme
     {
         foreach ($this->themes as $theme) {
@@ -38,10 +43,7 @@ class ThemePool
             }
         }
 
-        $theme = $this->themes['default'];
-        $theme->PHPColorSchemaDto->applyColors();
-
-        return $theme;
+        throw new UnknownThemeException(sprintf('Unknown theme: %s', $title));
     }
 
     private function addDefaultThemes(): void
