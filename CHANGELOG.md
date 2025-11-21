@@ -29,3 +29,29 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Set PHP minimum version in composer
 - Throws UnknownThemeException
 - Added tests
+
+## [3.0.0] - 2025-11-21
+
+### Added
+- Support for `<pre><code>` pattern (in addition to `<pre>`) for better Markdown compatibility
+- Support for `class="language-*"` attribute on `<code>` tag for language detection
+- Fluent interface for `showLineNumbers()` and `showActionPanel()` methods
+- `HighlighterFactory` class for creating highlighter instances based on language
+- `CodeBlockWrapper` class for separating presentation logic from highlighting
+- `LanguageNormalizer` class for normalizing language identifiers with aliases support
+- Custom exceptions: `InvalidLanguageException`, `InvalidThemeException`, `ThemeNotSetException`
+- PHP as default language for code blocks without specified language
+- Comprehensive test suite
+
+### Changed
+- **BREAKING**: Removed Singleton pattern from all highlighter classes (`HighlighterPHP`, `HighlighterXML`, `HighlighterBash`)
+- **BREAKING**: Made `HighlighterBase` an abstract class (cannot be instantiated directly)
+- **BREAKING**: Added `ext-dom` PHP extension requirement (previously optional with regex fallback)
+- Improved HTML attribute parsing using `DOMDocument` with regex fallback
+- Enhanced syntax highlighting logic in `HighlighterBase`
+- Improved XML/HTML highlighting: fixed line-by-line processing, proper attribute highlighting
+- Updated PHPDoc comments throughout the codebase
+
+### Fixed
+- Fixed issue with extra empty lines at the beginning and end of code blocks
+- Fixed line numbering

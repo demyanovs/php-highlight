@@ -2,10 +2,11 @@
 
 namespace Demyanovs\PHPHighlight;
 
+/**
+ * Highlighter for Bash shell scripts
+ */
 class HighlighterBash extends HighlighterBase
 {
-    private static ?self $instance = null;
-
     /** @var string[] */
     protected array $keywords = [
         'wget',
@@ -32,15 +33,4 @@ class HighlighterBash extends HighlighterBase
         'require',
         'composer',
     ];
-
-    public static function getInstance(string $text): self
-    {
-        if (self::$instance) {
-            self::$instance->setText($text);
-
-            return self::$instance;
-        }
-
-        return self::$instance = new self($text);
-    }
 }
