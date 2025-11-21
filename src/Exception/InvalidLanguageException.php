@@ -12,4 +12,3 @@ class InvalidLanguageException extends \InvalidArgumentException
         parent::__construct($message, $code, $previous);
     }
 }
-

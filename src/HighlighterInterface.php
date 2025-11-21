@@ -21,4 +21,3 @@ interface HighlighterInterface
      */
     public function setTheme(\Demyanovs\PHPHighlight\Themes\Theme $theme): void;
 }
-

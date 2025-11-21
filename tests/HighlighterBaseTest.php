@@ -3,7 +3,6 @@
 namespace Demyanovs\PHPHighlight\Tests;
 
 use Demyanovs\PHPHighlight\Exception\ThemeNotSetException;
-use Demyanovs\PHPHighlight\HighlighterBase;
 use Demyanovs\PHPHighlight\HighlighterBash;
 use Demyanovs\PHPHighlight\Themes\DefaultTheme;
 use PHPUnit\Framework\TestCase;
@@ -13,10 +12,10 @@ class HighlighterBaseTest extends TestCase
     public function testHighlightWithoutThemeThrowsException(): void
     {
         $highlighter = new HighlighterBash('echo "test"');
-        
+
         $this->expectException(ThemeNotSetException::class);
         $this->expectExceptionMessage('Theme must be set before highlighting');
-        
+
         $highlighter->highlight();
     }
 
@@ -25,9 +24,9 @@ class HighlighterBaseTest extends TestCase
         $highlighter = new HighlighterBash('echo "test"');
         $theme = new DefaultTheme();
         $highlighter->setTheme($theme);
-        
+
         $result = $highlighter->highlight();
-        
+
         $this->assertIsString($result);
         $this->assertNotEmpty($result);
     }
@@ -37,9 +36,9 @@ class HighlighterBaseTest extends TestCase
         $highlighter = new HighlighterBash('');
         $theme = new DefaultTheme();
         $highlighter->setTheme($theme);
-        
+
         $result = $highlighter->highlight();
-        
+
         $this->assertEquals('', $result);
     }
 
@@ -48,10 +47,9 @@ class HighlighterBaseTest extends TestCase
         $highlighter = new HighlighterBash('   ');
         $theme = new DefaultTheme();
         $highlighter->setTheme($theme);
-        
+
         $result = $highlighter->highlight();
-        
+
         $this->assertEquals('', $result);
     }
 }
-

@@ -116,4 +116,3 @@ class CodeBlockWrapperTest extends TestCase
         $this->assertStringContainsString('line2', $output);
     }
 }
-

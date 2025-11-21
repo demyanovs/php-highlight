@@ -12,4 +12,3 @@ class InvalidThemeException extends \InvalidArgumentException
         parent::__construct($message, $code, $previous);
     }
 }
-

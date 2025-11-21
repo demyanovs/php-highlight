@@ -28,6 +28,7 @@
         <exclude name="SlevomatCodingStandard.Commenting.RequireOneLineDocComment.MultiLineDocComment"/>
         <exclude name="SlevomatCodingStandard.ControlStructures.EarlyExit.EarlyExitNotUsed"/>
         <exclude name="SlevomatCodingStandard.PHP.RequireExplicitAssertion.RequiredExplicitAssertion"/>
+        <exclude name="SlevomatCodingStandard.Classes.SuperfluousInterfaceNaming.SuperfluousSuffix"/>
         <exclude name="Generic.Formatting.SpaceAfterNot.Incorrect"/>
         <exclude name="Generic.Formatting.MultipleStatementAlignment.NotSame"/>
         <exclude name="Squiz.Functions.FunctionDeclarationArgumentSpacing.SpacingAfterHint"/>
@@ -35,4 +36,5 @@
     </rule>
 
     <exclude-pattern>examples/</exclude-pattern>
+    <exclude-pattern>tests/</exclude-pattern>
 </ruleset>

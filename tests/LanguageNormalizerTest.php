@@ -44,4 +44,3 @@ class LanguageNormalizerTest extends TestCase
         $this->assertEquals('html', LanguageNormalizer::normalize('HTM'));
     }
 }
-
