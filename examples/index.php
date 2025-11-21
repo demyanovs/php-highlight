@@ -158,7 +158,7 @@ require_once '../vendor/autoload.php';
 use Demyanovs\PHPHighlight\Highlighter;
 use Demyanovs\PHPHighlight\Themes\ObsidianTheme;
 
-$highlighter = (new Highlighter($text, \Demyanovs\PHPHighlight\Themes\FarTheme::TITLE))
+$highlighter = (new Highlighter($text, ObsidianTheme::TITLE))
         ->showLineNumbers(true)
         ->showActionPanel(true);
 echo $highlighter->parse();
