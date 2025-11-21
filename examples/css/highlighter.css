@@ -54,3 +54,7 @@
 .code-highlighter .line-number {
     display: block;
 }
+
+.code-block-wrapper .code-block {
+    display: block;
+}

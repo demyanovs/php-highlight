@@ -15,7 +15,7 @@ error_reporting(E_ALL);
 
 $text = '
 <h2>PHP</h2>
-<pre data-file="php-highlight/examples/index.php" data-lang="php">
+<pre><code class="language-php" data-file="php-highlight/examples/index.php">
 &lt;?php
 abstract class AbstractClass
 {
@@ -48,10 +48,10 @@ class ConcreteClass extends AbstractClass
 $class = new ConcreteClass;
 echo $class->prefixName("Pacman"), "\n";
 echo $class->prefixName("Pacwoman"), "\n";
-</pre>
+</code></pre>
 
 <h2>JavaScript</h2>
-<pre data-file="example.js" data-lang="js">
+<pre><code class="language-javascript" data-file="example.js">
 // Arrow functions let us omit the `function` keyword. Here `long_example`
 // points to an anonymous function value.
 const long_example = (input1, input2) => {
@@ -65,10 +65,10 @@ const short_example = input => input + 5;
 
 long_example(2, 3); // Prints "Hello, World!" and returns 5.
 short_example(2);   // Returns 7.
-</pre>
+</code></pre>
 
 <h2>Bash</h2>
-<pre data-file="example.sh" data-lang="bash">
+<pre><code class="language-bash" data-file="example.sh">
 #!/bin/bash
 read -p "Enter number : " n
 if test $n -ge 0
@@ -77,10 +77,10 @@ then
 else
 	echo "$n number is negative number."
 fi
-</pre>
+</code></pre>
 
 <h2>Go</h2>
-<pre data-lang="go" data-file="main.go">
+<pre><code class="language-go" data-file="main.go">
 package main
 
 import "fmt"
@@ -104,9 +104,9 @@ func main() {
     fmt.Scanln()
     fmt.Println("done")
 }
-</pre>
+</code></pre>
 <h2>Xml</h2>
-<pre data-lang="xml" data-file="recipe.xml">
+<pre><code class="language-xml" data-file="recipe.xml">
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE recipe>
 <recipe name="bread" preptime="5min" cooktime="180min">
@@ -130,10 +130,10 @@ func main() {
      </step>
    </instructions>
 </recipe>
-</pre>
+</code></pre>
 
 <h2>HTML</h2>
-<pre data-lang="html" data-file="index.html">
+<pre><code class="language-html" data-file="index.html">
 <!DOCTYPE html>
 <title>Title</title>
 
@@ -150,7 +150,7 @@ func main() {
     Mix all ingredients and knead thoroughly.
   </div>
 </body>
-</pre>
+</code></pre>
 ';
 
 require_once '../vendor/autoload.php';
@@ -158,10 +158,9 @@ require_once '../vendor/autoload.php';
 use Demyanovs\PHPHighlight\Highlighter;
 use Demyanovs\PHPHighlight\Themes\ObsidianTheme;
 
-$highlighter = new Highlighter($text, ObsidianTheme::TITLE);
-// Configuration
-$highlighter->showLineNumbers(true);
-$highlighter->showActionPanel(true);
+$highlighter = (new Highlighter($text, ObsidianTheme::TITLE))
+        ->showLineNumbers(true)
+        ->showActionPanel(true);
 echo $highlighter->parse();
 
 ?>
